@@ -77,35 +77,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          src="https://cdn.amplitude.com/script/594fb74bf75e546311b19c5b1b71bd5d.js"
-          async
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (window.amplitude && window.sessionReplay) {
-                window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
-                window.amplitude.init('594fb74bf75e546311b19c5b1b71bd5d', {
-                  "fetchRemoteConfig": true,
-                  "autocapture": {
-                    "attribution": true,
-                    "fileDownloads": true,
-                    "formInteractions": true,
-                    "pageViews": true,
-                    "sessions": true,
-                    "elementInteractions": true,
-                    "networkTracking": true,
-                    "webVitals": true,
-                    "frustrationInteractions": true
-                  }
-                });
-              }
-            `,
-          }}
-        />
-      </head>
       {children}
     </html>
   );
