@@ -1,20 +1,28 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
+import { Pool, PoolConfig } from "pg";
 import * as schema from "@/drizzle/schema";
 
-// Parse DATABASE_URL and configure SSL options
-const getDbConfig = () => {
-  const url = process.env.DATABASE_URL!;
+// Parse DATABASE_URL and configure SSL options using the same logic as drizzle.config.ts
+const getDbConfig = (url: string): PoolConfig => {
+  const databaseUrl =
+    url ||
+    (() => {
+      throw new Error("DATABASE_URL environment variable is required");
+    })();
 
+  // Try to parse the URL
   try {
-    const dbUrl = new URL(url);
+    const dbUrl = new URL(databaseUrl);
     const sslMode = dbUrl.searchParams.get("sslmode");
 
-    // Configure SSL based on sslmode parameter
+    // Strip sslmode from URL so pg doesn't override our explicit ssl setting
+    dbUrl.searchParams.delete("sslmode");
+
+    // Configure SSL based on sslmode parameter (same logic as drizzle.config.ts)
+    // But strip sslmode from connection string so our explicit config is authoritative
     let ssl: boolean | { rejectUnauthorized: boolean } = false;
 
-    if (sslMode === "require" || sslMode === "prefer") {
-      // In production, verify certificates; in development, allow self-signed
+    if (sslMode === "require") {
       ssl =
         process.env.NODE_ENV === "production"
           ? { rejectUnauthorized: true }
@@ -22,17 +30,25 @@ const getDbConfig = () => {
     }
 
     return {
-      connectionString: url,
+      connectionString: dbUrl.toString(),
       ssl,
     };
   } catch {
-    // If URL parsing fails, use connection string directly
-    // and check if it contains SSL parameters
-    const hasSslMode =
-      url.includes("sslmode=require") || url.includes("sslmode=prefer");
+    // If URL parsing fails, manually strip sslmode from the connection string
+    // Check if sslmode=require is present in the string
+    const hasSslRequire = databaseUrl.includes("sslmode=require");
+
+    // Remove sslmode parameter from URL
+    let cleanedUrl = databaseUrl.replace(/[?&]sslmode=[^&]*/g, "");
+    // Clean up any malformed query strings
+    cleanedUrl = cleanedUrl
+      .replace(/\?&+/, "?")
+      .replace(/&+$/, "")
+      .replace(/\?$/, "");
+
     return {
-      connectionString: url,
-      ssl: hasSslMode
+      connectionString: cleanedUrl,
+      ssl: hasSslRequire
         ? process.env.NODE_ENV === "production"
           ? { rejectUnauthorized: true }
           : { rejectUnauthorized: false }
@@ -41,6 +57,14 @@ const getDbConfig = () => {
   }
 };
 
-const pool = new Pool(getDbConfig());
+const databaseUrl = process.env.DATABASE_URL;
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL environment variable is required");
+}
+
+const pool = new Pool(getDbConfig(databaseUrl));
 
 export const db = drizzle(pool, { schema });
+
+// Export getDbConfig for use in procedures.ts
+export { getDbConfig };
