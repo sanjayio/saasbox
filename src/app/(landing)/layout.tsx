@@ -23,7 +23,7 @@ export default function RootLayout({
         <Footer />
         <eckokit-convai agent-id={process.env.ECKOKIT_AGENT_ID!} />
         <script
-          src="http://localhost:3000/dist/eckokit-widget.min.js"
+          src={`${process.env.BETTER_AUTH_URL}/dist/eckokit-widget.min.js`}
           async
           type="text/javascript"
         ></script>
