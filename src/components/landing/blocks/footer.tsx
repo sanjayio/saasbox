@@ -22,7 +22,10 @@ export function Footer() {
     },
   ];
 
-  const legal = [{ name: "Privacy Policy", href: "/privacy" }];
+  const legal = [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+  ];
 
   return (
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
