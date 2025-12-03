@@ -16,7 +16,7 @@ export default function Page() {
         <Features />
         <ResourceAllocation />
       </Background>
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Background variant="bottom">
         <Pricing />
         <FAQ />

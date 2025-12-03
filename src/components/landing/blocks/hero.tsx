@@ -55,7 +55,7 @@ export const Hero = () => {
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
             <Button asChild>
-              <Link href="#">Download free e-book</Link>
+              <Link href="/auth/sign-up">Get Started</Link>
             </Button>
             <Button
               variant="outline"

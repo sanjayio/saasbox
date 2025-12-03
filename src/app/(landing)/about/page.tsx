@@ -1,8 +1,6 @@
 import { Background } from "@/components/landing/background";
 import About from "@/components/landing/blocks/about";
 import { AboutHero } from "@/components/landing/blocks/about-hero";
-import { Investors } from "@/components/landing/blocks/investors";
-import { DashedLine } from "@/components/landing/dashed-line";
 
 export default function AboutPage() {
   return (
@@ -11,10 +9,10 @@ export default function AboutPage() {
         <AboutHero />
 
         <About />
-        <div className="pt-28 lg:pt-32">
+        {/* <div className="pt-28 lg:pt-32">
           <DashedLine className="container max-w-5xl scale-x-115" />
           <Investors />
-        </div>
+        </div> */}
       </div>
     </Background>
   );

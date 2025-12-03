@@ -1,10 +1,12 @@
+import React from "react";
+
 import { Background } from "@/components/landing/background";
-import DemoScheduler from "@/components/landing/blocks/demo-scheduler";
+import Contact from "@/components/landing/blocks/contact";
 
 const Page = () => {
   return (
     <Background>
-      <DemoScheduler />
+      <Contact />
     </Background>
   );
 };

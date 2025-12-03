@@ -14,8 +14,12 @@ export function Footer() {
   ];
 
   const social = [
-    { name: "Xwitter", href: "https://x.com/ausrobdev" },
-    { name: "LinkedIn", href: "#" },
+    { name: "Xwitter", href: "https://x.com/eckokit" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/eckokit" },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61584605127931",
+    },
   ];
 
   const legal = [{ name: "Privacy Policy", href: "/privacy" }];
@@ -85,7 +89,7 @@ export function Footer() {
         >
           <text
             x="50%"
-            y="70%"
+            y="73%"
             textAnchor="middle"
             dominantBaseline="middle"
             fontFamily="Inter, system-ui, Arial, sans-serif"

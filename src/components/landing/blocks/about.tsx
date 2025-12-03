@@ -11,8 +11,8 @@ const About = () => {
       <div className="flex flex-col gap-8 lg:gap-16 xl:gap-20">
         <ImageSection
           images={[
-            { src: "/about/1.webp", alt: "Team collaboration" },
-            { src: "/about/2.webp", alt: "Team workspace" },
+            { src: "placeholder.svg", alt: "Team collaboration" },
+            { src: "placeholder.svg", alt: "Team workspace" },
           ]}
           className="xl:-translate-x-10"
         />
@@ -20,9 +20,9 @@ const About = () => {
         <TextSection
           title="The team"
           paragraphs={[
-            "We started building Mainline in 2019 and launched in 2022. Every endpoint has been designed from the ground up — with no technical debt or legacy systems. We are purpose-built to power project management innovation for the next hundred years.",
-            "We are 100% founder and team-owned, profitable, and we keep our team lean. Over time, this page will become more polished, but for now, we're focused on delivering for developers.",
-            "If you're interested in building the future of PM, check out our open roles below.",
+            "Eckokit was founded by Sanjay Kumar in 2025, with a passion for AI, automation, and simplifying everyday business operations. Since day one, we&apos;ve focused on rebuilding what&apos;s possible for customer communication and support.",
+            "We&apos;re proudly founder-owned, independent, and moving fast. We keep our team lean to remain agile and focused on delivering tangible value to our customers.",
+            "Curious about the future we&apos;re building? Join us on our mission to make customer conversations smarter, simpler, and more effective.",
           ]}
           ctaButton={{
             href: "/careers",
@@ -35,14 +35,14 @@ const About = () => {
       <div className="flex flex-col gap-8 lg:gap-16 xl:gap-20">
         <TextSection
           paragraphs={[
-            "At Mainline, we are dedicated to transforming the way teams plan, execute, and deliver projects. Our mission is to provide our customers with an unbeatable edge over delays, inefficiencies, and disorganisation through actionable insights and seamless collaboration. We'll stop at nothing to give you the tools you need to get every project across the finish line.",
-            "We're customer-obsessed — investing the time to understand every aspect of your workflow so that we can help you operate better than ever before. We're all in this together because your success is our success. In our history as a company, we've never lost a customer, because when your projects succeed, so do we.",
+            "At Eckokit, we're driven to revolutionize how organizations engage and support their customers through AI Voice Agents and automation. Our mission is to empower you with always-on, intelligent voice-driven solutions that streamline conversations, reduce manual effort, and deliver exceptional experiences—effortlessly and at scale.",
+            "We're customer-obsessed—taking the time to understand your unique business needs so we can build agents that fit seamlessly into your workflows. Our success is tied to yours: our automation is designed to let you focus on what matters most, while our AI Voice Agents ensure you never miss an opportunity to connect, assist, or delight.",
           ]}
         />
         <ImageSection
           images={[
-            { src: "/about/3.webp", alt: "Modern workspace" },
-            { src: "/about/4.webp", alt: "Team collaboration" },
+            { src: "placeholder.svg", alt: "Modern workspace" },
+            { src: "placeholder.svg", alt: "Team collaboration" },
           ]}
           className="hidden lg:flex xl:translate-x-10"
         />

@@ -10,6 +10,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/landing/ui/collapsible";
+import { pricingPlans } from "@/lib/constants";
 
 interface FeatureSection {
   category: string;
@@ -20,30 +21,6 @@ interface FeatureSection {
     enterprise: true | false | null | string;
   }[];
 }
-
-const pricingPlans = [
-  {
-    name: "Starter",
-    button: {
-      text: "Book a demo",
-      variant: "outline" as const,
-    },
-  },
-  {
-    name: "Pro",
-    button: {
-      text: "Book a demo",
-      variant: "outline" as const,
-    },
-  },
-  {
-    name: "Custom",
-    button: {
-      text: "Book a demo",
-      variant: "outline" as const,
-    },
-  },
-];
 
 const comparisonFeatures: FeatureSection[] = [
   {
@@ -210,7 +187,7 @@ const PlanHeaders = ({
           </div>
           <CollapsibleContent className="flex flex-col space-y-2 p-2">
             {pricingPlans.map(
-              (plan, index) =>
+              (plan: (typeof pricingPlans)[number], index: number) =>
                 index !== selectedPlan && (
                   <Button
                     size="lg"
@@ -233,14 +210,16 @@ const PlanHeaders = ({
       <div className="grid grid-cols-4 gap-4 max-md:hidden">
         <div className="col-span-1 max-md:hidden"></div>
 
-        {pricingPlans.map((plan, index) => (
-          <div key={index} className="">
-            <h3 className="mb-3 text-2xl font-semibold">{plan.name}</h3>
-            <Button variant={plan.button.variant} className="">
-              {plan.button.text}
-            </Button>
-          </div>
-        ))}
+        {pricingPlans.map(
+          (plan: (typeof pricingPlans)[number], index: number) => (
+            <div key={index} className="">
+              <h3 className="mb-3 text-2xl font-semibold">{plan.name}</h3>
+              <Button variant={plan.button.variant} className="">
+                {plan.button.text}
+              </Button>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

@@ -234,6 +234,26 @@ export const Navbar = () => {
               </Link>
             )
           )}
+          <Link
+            href="/sign-in"
+            className={cn(
+              "text-foreground py-4 text-base font-medium transition-colors first:pt-0 last:pb-0",
+              pathname === "/sign-in" && "text-muted-foreground"
+            )}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/sign-up"
+            className={cn(
+              "text-foreground py-4 text-base font-medium transition-colors first:pt-0 last:pb-0",
+              pathname === "/sign-up" && "text-muted-foreground"
+            )}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Get Started
+          </Link>
         </nav>
       </div>
     </section>

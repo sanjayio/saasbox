@@ -9,52 +9,8 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/landing/ui/button";
 import { Card, CardContent } from "@/components/landing/ui/card";
 import { Switch } from "@/components/landing/ui/switch";
+import { plans } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-
-const plans = [
-  {
-    name: "Starter",
-    monthlyPrice: "$149",
-    yearlyPrice: "$1490",
-    description: "For micro businesses and freelancers",
-    features: [
-      "1 Voice Agent",
-      "5 Calls per day",
-      "3 Workflows",
-      "Phone and Web Channels",
-      "Simple Analytics",
-      "Email Support",
-    ],
-  },
-  {
-    name: "Pro",
-    monthlyPrice: "$399",
-    yearlyPrice: "$3990",
-    description: "For small businesses and startups",
-    features: [
-      "1 Voice Agent",
-      "20 Calls per day",
-      "10 Workflows",
-      "Phone and Web Channels",
-      "Advanced Analytics",
-      "Email and Slack Support",
-    ],
-  },
-  {
-    name: "Custom",
-    monthlyPrice: "Let's talk",
-    yearlyPrice: "Let's talk",
-    description: "For scale-ups and enterprises",
-    features: [
-      "Unlimited Voice Agents",
-      "Unlimited Calls per day",
-      "Unlimited Workflows",
-      "Phone and Web Channels",
-      "Advanced Analytics",
-      "Email, Slack and Phone Support",
-    ],
-  },
-];
 
 export const Pricing = ({ className }: { className?: string }) => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -85,12 +41,12 @@ export const Pricing = ({ className }: { className?: string }) => {
           </div>
         </div>
 
-        <div className="mt-8 grid items-start gap-5 text-start md:mt-12 md:grid-cols-3 lg:mt-20">
-          {plans.map((plan) => (
+        <div className="mt-8 grid items-start gap-5 text-start md:mt-12 md:grid-cols-4 lg:mt-20">
+          {plans.map((plan: (typeof plans)[number]) => (
             <Card
               key={plan.name}
               className={`${
-                plan.name === "Pro"
+                plan.name === "Growth"
                   ? "outline-primary origin-top outline-4"
                   : ""
               }`}
@@ -106,20 +62,20 @@ export const Pricing = ({ className }: { className?: string }) => {
                     </span>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-lg font-medium">
-                      {isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
-                      {plan.name !== "Custom" && (
+                    {plan.name !== "Custom" && (
+                      <div className="text-lg font-medium">
+                        {isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
                         <span className="text-muted-foreground">
                           {" "}
                           per {isAnnual ? "year" : "month"}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  {plan.features.map((feature) => (
+                  {plan.features.map((feature: string) => (
                     <div
                       key={feature}
                       className="text-muted-foreground flex items-center gap-1.5"
