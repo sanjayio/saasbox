@@ -29,9 +29,6 @@ export default function RootLayout({
           avatar-orb-color-2="#4f46e5"
           default-expanded="false"
           always-expanded="false"
-          /* override agent copy */
-          override-first-message="Hey 👋 I'm Eka, your AI assistant. Ask me anything about bookings or pricing."
-          override-prompt="Type your question here…"
           /* override UI strings */
           text-contents={JSON.stringify({
             message_input_placeholder: "Ask me anything about your business…",
