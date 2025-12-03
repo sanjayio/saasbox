@@ -79,6 +79,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
+          src="https://buglet.vercel.app/buglet.js"
+          data-position="left"
+          data-size="small"
+          data-primary-color="#ffffff"
+          data-secondary-color="#E52828"
+          data-arrow-color="white"
+          data-border-color=""
+          data-allowed-paths="/*"
+          data-config-id="g-3CnR6cLM5_eYjn4Wlf"
+          defer
+        ></script>
+        <script
           src="https://cdn.amplitude.com/script/594fb74bf75e546311b19c5b1b71bd5d.js"
           async
         ></script>

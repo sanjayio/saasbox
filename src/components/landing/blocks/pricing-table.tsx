@@ -16,9 +16,10 @@ interface FeatureSection {
   category: string;
   features: {
     name: string;
-    free: true | false | null | string;
-    startup: true | false | null | string;
-    enterprise: true | false | null | string;
+    starter: true | false | null | string;
+    growth: true | false | null | string;
+    scale: true | false | null | string;
+    custom: true | false | null | string;
   }[];
 }
 
@@ -27,22 +28,46 @@ const comparisonFeatures: FeatureSection[] = [
     category: "Usage",
     features: [
       {
-        name: "Members",
-        free: "Unlimited",
-        startup: "Unlimited",
-        enterprise: "Unlimited",
+        name: "Organizations",
+        starter: "1",
+        growth: "10",
+        scale: "100",
+        custom: "Unlimited",
       },
       {
-        name: "Transactions",
-        free: "250",
-        startup: "Unlimited",
-        enterprise: "Unlimited",
+        name: "Agents",
+        starter: "1",
+        growth: "5",
+        scale: "10",
+        custom: "Unlimited",
       },
       {
-        name: "Teams",
-        free: "2",
-        startup: "Unlimited",
-        enterprise: "Unlimited",
+        name: "Minutes",
+        starter: "250",
+        growth: "1000",
+        scale: "3000",
+        custom: "Unlimited",
+      },
+      {
+        name: "Custom Workflows",
+        starter: "1",
+        growth: "5",
+        scale: "10",
+        custom: "Unlimited",
+      },
+      {
+        name: "Extra Minutes",
+        starter: "~$0.18 per minute",
+        growth: "~$0.15 per minute",
+        scale: "~$0.12 per minute",
+        custom: "Custom",
+      },
+      {
+        name: "Usage Analytics",
+        starter: true,
+        growth: true,
+        scale: true,
+        custom: true,
       },
     ],
   },
@@ -50,46 +75,53 @@ const comparisonFeatures: FeatureSection[] = [
     category: "Features",
     features: [
       {
-        name: "Reporting",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Custom Voices",
+        starter: "10",
+        growth: "30",
+        scale: "50",
+        custom: "Custom",
       },
       {
-        name: "Analytics",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Phone and Web Agents",
+        starter: true,
+        growth: true,
+        scale: true,
+        custom: true,
       },
       {
-        name: "Import and export",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Free Phone Number",
+        starter: "Full Price",
+        growth: "Discounted",
+        scale: "Free",
+        custom: "Free",
       },
       {
-        name: "Integrations",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Conversation History",
+        starter: "7 days",
+        growth: "30 days",
+        scale: "90 days",
+        custom: "Custom",
       },
       {
-        name: "Mainline AI",
-        free: null,
-        startup: true,
-        enterprise: true,
+        name: "Demand based Scaling",
+        starter: false,
+        growth: "x3",
+        scale: "x5",
+        custom: "Custom",
       },
       {
-        name: "Admin roles",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Advanced Analytics",
+        starter: false,
+        growth: false,
+        scale: true,
+        custom: true,
       },
       {
-        name: "Audit log",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Voice Clones",
+        starter: false,
+        growth: false,
+        scale: false,
+        custom: true,
       },
     ],
   },
@@ -97,22 +129,46 @@ const comparisonFeatures: FeatureSection[] = [
     category: "Support",
     features: [
       {
-        name: "Priority Support",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Email Support",
+        starter: true,
+        growth: true,
+        scale: true,
+        custom: true,
       },
       {
-        name: "Account Manager",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Slack Support",
+        starter: false,
+        growth: true,
+        scale: true,
+        custom: true,
       },
       {
-        name: "Uptime SLA",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Phone Support",
+        starter: false,
+        growth: false,
+        scale: true,
+        custom: true,
+      },
+      {
+        name: "Avg. Response Time",
+        starter: "2 days",
+        growth: "1 day",
+        scale: "12 hours",
+        custom: "2 hours",
+      },
+      {
+        name: "Dedicated Account Manager",
+        starter: false,
+        growth: false,
+        scale: false,
+        custom: true,
+      },
+      {
+        name: "Concierge Onboarding",
+        starter: false,
+        growth: false,
+        scale: false,
+        custom: true,
       },
     ],
   },
@@ -207,7 +263,7 @@ const PlanHeaders = ({
       </div>
 
       {/* Desktop View */}
-      <div className="grid grid-cols-4 gap-4 max-md:hidden">
+      <div className="grid grid-cols-5 gap-4 max-md:hidden">
         <div className="col-span-1 max-md:hidden"></div>
 
         {pricingPlans.map(
@@ -235,7 +291,7 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
         {section.features.map((feature, featureIndex) => (
           <div
             key={featureIndex}
-            className="text-foreground grid grid-cols-2 font-medium max-md:border-b md:grid-cols-4"
+            className="text-foreground grid grid-cols-2 font-medium max-md:border-b md:grid-cols-5"
           >
             <span className="inline-flex items-center py-4">
               {feature.name}
@@ -244,24 +300,27 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
             <div className="md:hidden">
               <div className="flex items-center gap-1 py-4 md:border-b">
                 {renderFeatureValue(
-                  [feature.free, feature.startup, feature.enterprise][
-                    selectedPlan
-                  ]
+                  [
+                    feature.starter,
+                    feature.growth,
+                    feature.scale,
+                    feature.custom,
+                  ][selectedPlan]
                 )}
               </div>
             </div>
             {/* Desktop View - All Plans */}
-            <div className="hidden md:col-span-3 md:grid md:grid-cols-3 md:gap-4">
-              {[feature.free, feature.startup, feature.enterprise].map(
-                (value, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-1 border-b py-4"
-                  >
-                    {renderFeatureValue(value)}
-                  </div>
-                )
-              )}
+            <div className="hidden md:col-span-4 md:grid md:grid-cols-4 md:gap-4">
+              {[
+                feature.starter,
+                feature.growth,
+                feature.scale,
+                feature.custom,
+              ].map((value, i) => (
+                <div key={i} className="flex items-center gap-1 border-b py-4">
+                  {renderFeatureValue(value)}
+                </div>
+              ))}
             </div>
           </div>
         ))}
