@@ -23,10 +23,10 @@ export default function Contact() {
                 <div>
                   <p className="text-lg font-semibold">Email</p>
                   <Link
-                    href="mailto:helloeckokit@gmail.com"
+                    href="mailto:support@eckokit.com"
                     className="text-muted-foreground hover:text-foreground mb-4"
                   >
-                    helloeckokit@gmail.com
+                    support@eckokit.com
                   </Link>
                 </div>
                 <div className="my-8">

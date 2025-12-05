@@ -534,7 +534,7 @@ const Page = () => {
         </p>
         <p>
           <strong>Email:</strong>{" "}
-          <a href="mailto:helloeckokit@gmail.com">helloeckokit@gmail.com</a>
+          <a href="mailto:support@eckokit.com">support@eckokit.com</a>
         </p>
         <p>
           <strong>Phone:</strong> <a href="tel:+61452590455">+61 452 590 455</a>
