@@ -1,4 +1,18 @@
 import type { Metadata } from "next";
+import * as Sentry from "@sentry/nextjs";
+
+Sentry.init({
+  dsn: "https://05f4fadda84c1a20a7cd49d56b2c1754@o4510507411767296.ingest.us.sentry.io/4510507412619264",
+  integrations: [
+    // send console.log, console.warn, and console.error calls as logs to Sentry
+    Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
+  ],
+  // Enable logs to be sent to Sentry
+  enableLogs: true,
+  // Session Replay
+  replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
+  replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
