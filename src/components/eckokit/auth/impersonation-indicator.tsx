@@ -4,7 +4,6 @@ import { authClient } from "@/lib/auth/auth-client";
 import { UserX } from "lucide-react";
 import { AuthActionButton } from "@/components/eckokit/auth/auth-action-button";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 export function ImpersonationIndicator() {
   const router = useRouter();

@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { authClient } from "@/lib/auth/auth-client";
-import { useState } from "react";
 
 const UsageWidget = () => {
   const { data: activeOrganization, isPending: isActiveOrganizationLoading } =

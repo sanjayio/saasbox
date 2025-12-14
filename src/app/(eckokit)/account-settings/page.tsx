@@ -18,7 +18,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth/auth";
 import {
-  ArrowLeft,
   Key,
   LinkIcon,
   Loader2Icon,

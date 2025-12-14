@@ -3,11 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { toast } from "sonner";
 
 export default function WidgetsContent() {
-  const organizationSlug = useParams().slug;
   return (
     <div className="mb-4 p-2 flex flex-col space-y-4">
       <div className="mb-8">

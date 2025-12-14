@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BotIcon, Copy, Pause, Play, Trash2 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { redirect, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
 import { useCreateNotification } from "@/hooks/use-notification";
 import { useState } from "react";

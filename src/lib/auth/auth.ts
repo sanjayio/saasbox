@@ -77,7 +77,7 @@ export const auth = betterAuth({
       },
     }),
     organization({
-      sendInvitationEmail: async (data, request) => {
+      sendInvitationEmail: async (data) => {
         await sendOrganizationInviteEmail({
           invitation: data.invitation,
           inviter: data.inviter.user,

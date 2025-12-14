@@ -1,36 +1,100 @@
-This is [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eckokit
+
+Eckokit is an all-in-one platform to build and maintain AI Voice agents and automations.
+
+## Tech Stack
+
+- **Frontend**: Next.js 16 with React 19
+- **Backend**: Tanstack Query + Hono
+- **Database**: PostgreSQL with Drizzle ORM
+- **Authentication**: Better Auth with Passkey support
+- **Security**: Arcjet for rate limiting and protection
+- **Email**: Resend
+- **Payments**: Stripe
+- **Voice AI**: Elevenlabs
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+# Install dependencies
+bun install
+
+# Run development server
 bun dev
+
+# Build for production
+bun build
+
+# Type-check and lint
+bun lint
+
+# Auto-fix linting issues
+bun lint --fix
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This is a monorepo with the following layout:
 
-## Learn More
+```
+src/
+├── app/                    # Next.js 16 frontend and backend
+│   ├── (landing)/         # Public pages
+│   └── eckokit/           # Protected pages
+├── components/            # Shared UI components
+├── drizzle/              # Database schemas and migrations
+├── server/               # Backend API code
+├── lib/                  # Third-party integrations
+└── hooks/                # React hooks (including DB queries)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Database Commands
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Generate migrations
+bun db:generate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Run migrations
+bun db:migrate
 
-## Deploy on Vercel
+# Push schema changes
+bun db:push
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Open Drizzle Studio
+bun db:studio
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Generate auth schema
+bun auth:generate
+```
+
+## Development Guidelines
+
+### Coding Style
+
+- TypeScript strict mode with single quotes, trailing commas, and semicolons
+- 100-character line limit
+- Tabs for indentation (2-space for YAML/JSON/MD)
+- Use interfaces for public APIs
+- Avoid `@ts-ignore`
+
+### Conventions
+
+- Use `zod` for request validation
+- Follow existing patterns and libraries already in the project
+- Never introduce new runtime dependencies without explanation in PR description
+
+### Git Workflow
+
+1. Branch from `main` with descriptive names: `feature/<slug>` or `bugfix/<slug>`
+2. Keep commits atomic with conventional commit messages (`feat:`, `fix:`, `test:`, etc.)
+3. Every PR must include:
+   - Passing lint & type checks (`bun lint`)
+   - Tests for new features or bug fixes
+   - One-paragraph description covering intent and root cause
+   - No drop in coverage
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines and [AGENTS.md](AGENTS.md) for AI agent development patterns.

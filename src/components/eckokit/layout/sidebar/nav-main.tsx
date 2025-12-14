@@ -19,7 +19,6 @@ import {
   ChevronRight,
   GaugeIcon,
   KeyIcon,
-  MessageSquareIcon,
   type LucideIcon,
   SettingsIcon,
   HomeIcon,
@@ -44,7 +43,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type NavGroup = {
   title: string;
