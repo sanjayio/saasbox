@@ -10,16 +10,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body>
+    <body className="antialiased dark">
       <ThemeProvider
         attribute="class"
-        defaultTheme="light"
-        enableSystem
+        defaultTheme="dark"
+        enableSystem={false}
         disableTransitionOnChange
       >
         <StyleGlideProvider />
         <Navbar />
-        <main className="">{children}</main>
+        <main>{children}</main>
         <Footer />
         <eckokit-convai
           agent-id={process.env.ECKOKIT_AGENT_ID!}

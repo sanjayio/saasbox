@@ -20,8 +20,8 @@ const Providers = ({ children, themeSettings }: ProvidersProps) => {
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="light"
-      enableSystem
+      defaultTheme="dark"
+      enableSystem={false}
       disableTransitionOnChange
     >
       <ActiveThemeProvider initialTheme={themeSettings}>
