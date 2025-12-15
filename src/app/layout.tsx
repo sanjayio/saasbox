@@ -97,6 +97,14 @@ export default function RootLayout({
           async
         ></script>
         <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: `
+            import * as loom from "https://www.unpkg.com/@loomhq/loom-embed@1.2.4/dist/esm/index.js?module";
+            `
+          }}
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               if (window.amplitude && window.sessionReplay) {

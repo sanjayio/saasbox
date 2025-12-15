@@ -11,6 +11,8 @@ import {
 
 import { DashedLine } from "@/components/landing/dashed-line";
 import { Button } from "@/components/landing/ui/button";
+import { Suspense } from "react";
+import LoomEmbed from "./loomEmbed";
 
 const features = [
   {
@@ -100,13 +102,17 @@ export const Hero = () => {
       </div>
 
       <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
-        <div className="relative h-[793px] w-full">
-          <Image
-            src="placeholder.svg"
-            alt="hero"
-            fill
-            className="rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
-          />
+        <div>
+          <Suspense fallback={
+            <Image
+              src="placeholder.svg"
+              alt="hero"
+              fill
+              className="rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
+            />
+          }>
+            <LoomEmbed videoUrl="https://www.loom.com/share/3013f2c292774968acbb636ba2d49307" />
+          </Suspense>
         </div>
       </div>
     </section>
