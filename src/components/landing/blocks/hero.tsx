@@ -16,24 +16,24 @@ import LoomEmbed from "./loomEmbed";
 
 const features = [
   {
-    title: "Tailored workflows",
-    description: "We custom build workflows to fit your business needs.",
+    title: "Better Customer Support",
+    description: "Resolve issues faster and improve user satisfaction.",
     icon: CircleDot,
   },
   {
-    title: "Cross-team agents",
-    description: "Our agents can work together across teams and departments.",
+    title: "Build Trust & Credibility",
+    description: "Showcase client feedback and highlight customer success.",
     icon: Blend,
   },
   {
-    title: "Phone and Website Integrations",
-    description: "Our agents can run on your phone and your website.",
+    title: "Keep Users Informed",
+    description: "Easily communicate product updates and important changes.",
     icon: Phone,
   },
   {
-    title: "Analytics & Insights",
+    title: "Grow Your SaaS Business",
     description:
-      "Monitor how your agents are performing through real-time metrics and insights.",
+      "Unlock actionable insights to boost engagement and retention.",
     icon: ChartNoAxesColumn,
   },
 ];
@@ -45,14 +45,14 @@ export const Hero = () => {
         {/* Left side - Main content */}
         <div className="flex-1">
           <h1 className="text-foreground font-light max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            Supercharge your calls
+            Supercharge your SaaS
           </h1>
           <h1 className="text-foreground font-light max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            with AI Voice Agents
+            with Powerful Tools
           </h1>
 
           <p className="text-muted-foreground font-light text-1xl mt-5 md:text-3xl">
-            Discover the new way to build and automate your telephony workflows.
+            Grow your SaaS with tools and integrations that work for you.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
@@ -64,8 +64,8 @@ export const Hero = () => {
               className="from-background to-background h-auto gap-2 bg-linear-to-r shadow-md"
               asChild
             >
-              <Link href="/book-a-demo">
-                Book a Demo
+              <Link href="/docs">
+                Read the Docs
                 <ArrowRight className="stroke-3" />
               </Link>
             </Button>

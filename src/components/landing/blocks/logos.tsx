@@ -88,10 +88,10 @@ export const Logos = () => {
       <div className="container space-y-10 lg:space-y-16">
         <div className="text-center">
           <h2 className="mb-4 text-xl text-balance md:text-2xl lg:text-3xl">
-            Powering Australia&apos;s best and brightest.
+            Powering SaaS businesses around the world.
             <br className="max-md:hidden" />
             <span className="text-muted-foreground ml-2">
-              From small businesses and startups to scale-ups.
+              From small businesses and startups to scale-ups and enterprises.
             </span>
           </h2>
         </div>

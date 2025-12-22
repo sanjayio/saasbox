@@ -35,7 +35,7 @@ jobs:
           STRIPE_PUBLISHABLE_KEY=${{ secrets.STRIPE_PUBLISHABLE_KEY }}
           STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
           STRIPE_STARTER_PRICE_ID=${{ secrets.STRIPE_STARTER_PRICE_ID }}
-          STRIPE_PRO_PRICE_ID=${{ secrets.STRIPE_PRO_PRICE_ID }}
+          STRIPE_GROWTH_PRICE_ID=${{ secrets.STRIPE_GROWTH_PRICE_ID }}
           ELEVENLABS_API_KEY=${{ secrets.ELEVENLABS_API_KEY }}
           ECKOKIT_AGENT_ID=${{ secrets.ECKOKIT_AGENT_ID }}
           EOF

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
-  dsn: "https://05f4fadda84c1a20a7cd49d56b2c1754@o4510507411767296.ingest.us.sentry.io/4510507412619264",
+  dsn: "https://fa9d9f2bf90fa62842aed39d44c78636@o4510507411767296.ingest.us.sentry.io/4510549490401280",
   integrations: [
     // send console.log, console.warn, and console.error calls as logs to Sentry
     Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
@@ -22,29 +22,25 @@ export const metadata: Metadata = {
         : "http://localhost:3000")
   ),
   title: {
-    default: "Eckokit - AI Voice Agents",
-    template: "%s | Eckokit",
+    default: "SaaS Box",
+    template: "%s | SaaS Box",
   },
   description:
-    "Eckokit is a platform for building and automating your telephony workflows with AI Voice Agents.",
+    "SaaS Box is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
   keywords: [
-    "AI Voice Agents",
-    "Telephony Workflows",
-    "Automation Platforms",
-    "Call Center Automation",
-    "Call Center Management",
-    "Call Center Software",
-    "AI Automation",
-    "AI Voice Automation",
-    "AI Voice Management",
-    "AI Voice Software",
-    "AI Voice Platforms",
-    "AI Voice Automation",
-    "AI Voice Management",
+    "SaaS Box",
+    "SaaS Tools",
+    "SaaS Integrations",
+    "SaaS Automation",
+    "SaaS Management",
+    "SaaS Software",
+    "SaaS Platforms",
+    "SaaS Automation",
+    "SaaS Management",
   ],
-  authors: [{ name: "Eckokit" }],
-  creator: "Eckokit",
-  publisher: "Eckokit",
+  authors: [{ name: "Sanjay Kumar" }],
+  creator: "Sanjay Kumar",
+  publisher: "Sanjay Kumar",
   robots: {
     index: true,
     follow: true,
@@ -61,24 +57,24 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "Eckokit - AI Voice Agents",
+    title: "SaaS Box",
     description:
-      "Eckokit is a platform for building and automating your telephony workflows with AI Voice Agents.",
-    siteName: "Eckokit",
+      "SaaS Box is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
+    siteName: "SaaS Box",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Eckokit - AI Voice Agents",
+        alt: "SaaS Box",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eckokit - AI Voice Agents",
+    title: "SaaS Box",
     description:
-      "Eckokit is a platform for building and automating your telephony workflows with AI Voice Agents.",
+      "SaaS Box is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
     images: ["/og-image.jpg"],
     creator: "@iamsanjayofficl",
   },

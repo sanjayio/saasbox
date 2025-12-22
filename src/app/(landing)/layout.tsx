@@ -10,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className="antialiased dark">
+    <body className="antialiased">
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -21,28 +21,6 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <eckokit-convai
-          agent-id={process.env.ECKOKIT_AGENT_ID!}
-          /* avatar + basic behaviour */
-          avatar-image-url="placeholder.svg"
-          avatar-orb-color-1="#22c55e"
-          avatar-orb-color-2="#4f46e5"
-          default-expanded="false"
-          always-expanded="false"
-          /* override UI strings */
-          text-contents={JSON.stringify({
-            message_input_placeholder: "Ask me anything about your business…",
-            connecting_status: "Connecting you to your assistant…",
-            feedback_prompt: "Was this reply helpful?",
-            call_fallback_button_label: "Call our team",
-            call_fallback_cancel_button_label: "Stay in chat",
-          })}
-        />
-        <script
-          src={`${process.env.BETTER_AUTH_URL}/dist/eckokit-widget.min.js`}
-          async
-          type="text/javascript"
-        ></script>
       </ThemeProvider>
     </body>
   );

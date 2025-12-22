@@ -46,7 +46,7 @@ export const Pricing = ({ className }: { className?: string }) => {
             <Card
               key={plan.name}
               className={`${
-                plan.name === "Growth"
+                plan.name === "Starter"
                   ? "outline-primary origin-top outline-4"
                   : ""
               }`}
@@ -62,7 +62,7 @@ export const Pricing = ({ className }: { className?: string }) => {
                     </span>
                   </div>
                   <div className="space-y-1">
-                    {plan.name !== "Custom" && (
+                    {plan.name !== "Free" && (
                       <div className="text-lg font-medium">
                         {isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
                         <span className="text-muted-foreground">
@@ -88,10 +88,10 @@ export const Pricing = ({ className }: { className?: string }) => {
 
                 <Button
                   className="w-fit"
-                  variant={plan.name === "Pro" ? "default" : "outline"}
+                  variant={plan.button.variant}
                   asChild
                 >
-                  <Link href="/book-a-demo">Book a demo</Link>
+                  <Link href="/auth/sign-up">{plan.button.text}</Link>
                 </Button>
               </CardContent>
             </Card>

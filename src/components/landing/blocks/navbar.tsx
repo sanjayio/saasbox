@@ -26,21 +26,21 @@ const ITEMS = [
     href: "#features",
     dropdownItems: [
       {
-        title: "Why Eckokit?",
-        href: "/#why-eckokit",
+        title: "Why SaaS Box?",
+        href: "/#why-saas-box",
         description:
-          "Learn why Eckokit is the best way to build and automate your telephony automation workflows.",
+          "Learn why SaaS Box is the best way to grow your SaaS business.",
       },
       {
         title: "How it works",
         href: "/#how-it-works",
         description:
-          "Learn how Eckokit is redefining telephony automation workflows with voice agents.",
+          "Learn how SaaS Box is redefining SaaS businesses with tools and integrations.",
       },
     ],
   },
   { label: "Pricing", href: "/pricing" },
-  { label: "Book a Demo", href: "/book-a-demo" },
+  { label: "Docs", href: "/docs" },
 ];
 
 export const Navbar = () => {
@@ -59,13 +59,13 @@ export const Navbar = () => {
       <div className="flex items-center justify-between px-6 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-1">
           <Image
-            src="/logo_light.svg"
+            src="/logo_light.png"
             alt="logo"
             width={28}
             height={28}
             className="dark:invert"
           />
-          <span className="text-xl font-bold italic">Eckokit</span>
+          <span className="text-xl font-bold italic">SaaS Box</span>
         </Link>
 
         {/* Desktop Navigation */}

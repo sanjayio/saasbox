@@ -16,10 +16,10 @@ interface FeatureSection {
   category: string;
   features: {
     name: string;
+    free: true | false | null | string;
     starter: true | false | null | string;
     growth: true | false | null | string;
     scale: true | false | null | string;
-    custom: true | false | null | string;
   }[];
 }
 
@@ -29,45 +29,45 @@ const comparisonFeatures: FeatureSection[] = [
     features: [
       {
         name: "Organizations",
+        free: true,
         starter: "1",
         growth: "10",
         scale: "100",
-        custom: "Unlimited",
       },
       {
         name: "Agents",
+        free: true,
         starter: "1",
         growth: "5",
         scale: "10",
-        custom: "Unlimited",
       },
       {
         name: "Minutes",
+        free: true,
         starter: "250",
         growth: "1000",
         scale: "3000",
-        custom: "Unlimited",
       },
       {
         name: "Custom Workflows",
+        free: true,
         starter: "1",
         growth: "5",
         scale: "10",
-        custom: "Unlimited",
       },
       {
         name: "Extra Minutes",
+        free: true,
         starter: "~$0.18 per minute",
         growth: "~$0.15 per minute",
         scale: "~$0.12 per minute",
-        custom: "Custom",
       },
       {
         name: "Usage Analytics",
+        free: true,
         starter: true,
         growth: true,
         scale: true,
-        custom: true,
       },
     ],
   },
@@ -76,52 +76,52 @@ const comparisonFeatures: FeatureSection[] = [
     features: [
       {
         name: "Custom Voices",
+        free: true,
         starter: "10",
         growth: "30",
         scale: "50",
-        custom: "Custom",
       },
       {
         name: "Phone and Web Agents",
+        free: true,
         starter: true,
         growth: true,
         scale: true,
-        custom: true,
       },
       {
         name: "Free Phone Number",
+        free: true,
         starter: "Full Price",
         growth: "Discounted",
         scale: "Free",
-        custom: "Free",
       },
       {
         name: "Conversation History",
+        free: true,
         starter: "7 days",
         growth: "30 days",
         scale: "90 days",
-        custom: "Custom",
       },
       {
         name: "Demand based Scaling",
+        free: true,
         starter: false,
         growth: "x3",
         scale: "x5",
-        custom: "Custom",
       },
       {
         name: "Advanced Analytics",
+        free: true,
         starter: false,
         growth: false,
         scale: true,
-        custom: true,
       },
       {
         name: "Voice Clones",
+        free: true,
         starter: false,
         growth: false,
         scale: false,
-        custom: true,
       },
     ],
   },
@@ -130,45 +130,45 @@ const comparisonFeatures: FeatureSection[] = [
     features: [
       {
         name: "Email Support",
+        free: true,
         starter: true,
         growth: true,
         scale: true,
-        custom: true,
       },
       {
         name: "Slack Support",
+        free: true,
         starter: false,
         growth: true,
         scale: true,
-        custom: true,
       },
       {
         name: "Phone Support",
+        free: true,
         starter: false,
         growth: false,
         scale: true,
-        custom: true,
       },
       {
         name: "Avg. Response Time",
+        free: true,
         starter: "2 days",
         growth: "1 day",
         scale: "12 hours",
-        custom: "2 hours",
       },
       {
         name: "Dedicated Account Manager",
+        free: true,
         starter: false,
         growth: false,
         scale: false,
-        custom: true,
       },
       {
         name: "Concierge Onboarding",
+        free: true,
         starter: false,
         growth: false,
         scale: false,
-        custom: true,
       },
     ],
   },
@@ -301,10 +301,10 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
               <div className="flex items-center gap-1 py-4 md:border-b">
                 {renderFeatureValue(
                   [
+                    feature.free,
                     feature.starter,
                     feature.growth,
                     feature.scale,
-                    feature.custom,
                   ][selectedPlan]
                 )}
               </div>
@@ -312,10 +312,10 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
             {/* Desktop View - All Plans */}
             <div className="hidden md:col-span-4 md:grid md:grid-cols-4 md:gap-4">
               {[
+                feature.free,
                 feature.starter,
                 feature.growth,
                 feature.scale,
-                feature.custom,
               ].map((value, i) => (
                 <div key={i} className="flex items-center gap-1 border-b py-4">
                   {renderFeatureValue(value)}

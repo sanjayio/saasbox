@@ -30,19 +30,17 @@ export const Features = () => {
         <div className="relative flex items-center justify-center">
           <DashedLine className="text-muted-foreground" />
           <span className="bg-muted text-muted-foreground absolute px-3 font-mono text-sm font-medium tracking-wide max-md:hidden">
-            NEVER MISS A CALL AGAIN
+            GROW YOUR SAAS LIKE NEVER BEFORE
           </span>
         </div>
 
         {/* Content */}
         <div className="mx-auto mt-10 grid max-w-4xl items-center gap-3 md:gap-0 lg:mt-24 lg:grid-cols-2">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl font-light">
-            Built for small businesses and startups
+            Built for SaaS businesses of all sizes
           </h2>
           <p className="text-muted-foreground leading-snug">
-            Eckokit is built using the latest and greatest AI Voice Agents and
-            Automation Platforms, with a focus on simplicity, ease of use, and
-            scalability.
+            SaaS Box is built using the latest and greatest tools and integrations, with a focus on simplicity, ease of use, and scalability.
           </p>
         </div>
 
