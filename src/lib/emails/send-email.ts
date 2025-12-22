@@ -12,7 +12,7 @@ export async function sendEmail({
   text: string;
 }) {
   await resend.emails.send({
-    from: "Eckokit Notifications <notifications@notifications.eckokit.com>", // You could add your custom domain
+    from: "SaaSBox Notifications <mail@notifications.saasbox.app>", // You could add your custom domain
     to: to, // email of the user to want to send the email to
     subject: subject, // Main subject of the email
     html: html, // Content of the email

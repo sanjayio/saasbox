@@ -24,7 +24,7 @@ const items = [
 
 export const Features = () => {
   return (
-    <section id="why-eckokit" className="pb-28 lg:pb-32">
+    <section id="why-saasbox" className="pb-28 lg:pb-32">
       <div className="container">
         {/* Top dashed line with text */}
         <div className="relative flex items-center justify-center">

@@ -12,7 +12,7 @@ const Page = () => {
         </p>
 
         <p>
-          Welcome to Eckokit (&quot;we,&quot; &quot;us,&quot; or
+          Welcome to SaaSBox (&quot;we,&quot; &quot;us,&quot; or
           &quot;our&quot;). These Terms of Service (&quot;Terms&quot;) govern
           your access to and use of our website, platform, and AI Voice Agents
           services (collectively, the &quot;Service&quot;). Please read these
@@ -38,7 +38,7 @@ const Page = () => {
 
         <h2>2. Description of Service</h2>
         <p>
-          Eckokit provides an AI Voice Agents platform that enables users to
+          SaaSBox provides an AI Voice Agents platform that enables users to
           create, configure, and deploy AI-powered voice agents for telephony
           workflows. Our Service includes:
         </p>
@@ -162,7 +162,7 @@ const Page = () => {
         <h3>6.1 Our Intellectual Property</h3>
         <p>
           The Service, including its original content, features, functionality,
-          design, and software, is owned by Eckokit and protected by
+          design, and software, is owned by SaaSBox and protected by
           international copyright, trademark, patent, trade secret, and other
           intellectual property laws. You may not copy, modify, distribute,
           sell, or lease any part of the Service without our prior written
@@ -243,13 +243,13 @@ const Page = () => {
           plan&apos;s retention period, after which they are deleted. WE ARE NOT
           RESPONSIBLE FOR YOUR COMPLIANCE WITH RECORDING LAWS, PRIVACY
           REGULATIONS, OR ANY OTHER APPLICABLE LAWS IN YOUR JURISDICTION. You
-          acknowledge that Eckokit provides the Service as a technology platform
+          acknowledge that SaaSBox provides the Service as a technology platform
           only and does not provide legal advice. You should consult with legal
           counsel to ensure your use of the Service complies with all applicable
           laws.
         </p>
         <p>
-          YOU AGREE TO INDEMNIFY AND HOLD ECKOKIT HARMLESS FROM ANY CLAIMS,
+          YOU AGREE TO INDEMNIFY AND HOLD SaaSBox HARMLESS FROM ANY CLAIMS,
           DAMAGES, PENALTIES, OR LIABILITIES ARISING FROM YOUR FAILURE TO COMPLY
           WITH ANY APPLICABLE LAWS OR REGULATIONS RELATED TO CALL RECORDING,
           PRIVACY, OR DATA PROTECTION.
@@ -299,7 +299,7 @@ const Page = () => {
           error-free, or that defects will be corrected.
         </p>
         <p>
-          WITHOUT LIMITING THE FOREGOING, ECKOKIT EXPRESSLY DISCLAIMS ALL
+          WITHOUT LIMITING THE FOREGOING, SaaSBox EXPRESSLY DISCLAIMS ALL
           WARRANTIES, EXPRESS OR IMPLIED, REGARDING:
         </p>
         <ul>
@@ -332,7 +332,7 @@ const Page = () => {
           </li>
         </ul>
         <p>
-          You acknowledge and agree that Eckokit is not responsible for any
+          You acknowledge and agree that SaaSBox is not responsible for any
           decisions made or actions taken based on information provided by the
           Service, including but not limited to AI-generated responses, call
           outcomes, or automated workflows.
@@ -340,7 +340,7 @@ const Page = () => {
 
         <h2>12. Limitation of Liability</h2>
         <p>
-          TO THE MAXIMUM EXTENT PERMITTED BY LAW, ECKOKIT, ITS AFFILIATES,
+          TO THE MAXIMUM EXTENT PERMITTED BY LAW, SaaSBox, ITS AFFILIATES,
           OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS, AND SUPPLIERS SHALL
           NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
           PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUES, DATA, USE,
@@ -383,29 +383,29 @@ const Page = () => {
           <li>Any damages resulting from your reliance on the Service</li>
         </ul>
         <p>
-          IN NO EVENT SHALL ECKOKIT&apos;S TOTAL LIABILITY TO YOU FOR ALL CLAIMS
+          IN NO EVENT SHALL SaaSBox&apos;s TOTAL LIABILITY TO YOU FOR ALL CLAIMS
           ARISING FROM OR RELATED TO THE SERVICE EXCEED THE AMOUNT YOU PAID TO
-          ECKOKIT IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR ONE HUNDRED
-          DOLLARS ($100), WHICHEVER IS GREATER. IF YOU HAVE NOT PAID ECKOKIT ANY
-          AMOUNTS, ECKOKIT&apos;S TOTAL LIABILITY SHALL NOT EXCEED ONE HUNDRED
+          SaaSBox IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR ONE HUNDRED
+          DOLLARS ($100), WHICHEVER IS GREATER. IF YOU HAVE NOT PAID SaaSBox ANY
+          AMOUNTS, SaaSBox&apos;s TOTAL LIABILITY SHALL NOT EXCEED ONE HUNDRED DOLLARS ($100).
           DOLLARS ($100).
         </p>
         <p>
           THE FOREGOING LIMITATIONS SHALL APPLY REGARDLESS OF THE THEORY OF
           LIABILITY, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT
-          LIABILITY, OR OTHERWISE, AND EVEN IF ECKOKIT HAS BEEN ADVISED OF THE
+          LIABILITY, OR OTHERWISE, AND EVEN IF SaaSBox HAS BEEN ADVISED OF THE
           POSSIBILITY OF SUCH DAMAGES.
         </p>
         <p>
           Some jurisdictions do not allow the exclusion or limitation of
           incidental or consequential damages, so the above limitations or
-          exclusions may not apply to you. In such jurisdictions, Eckokit&apos;s
+          exclusions may not apply to you. In such jurisdictions, SaaSBox&apos;s
           liability shall be limited to the maximum extent permitted by law.
         </p>
 
         <h2>13. Indemnification</h2>
         <p>
-          YOU AGREE TO INDEMNIFY, DEFEND, AND HOLD HARMLESS ECKOKIT, ITS
+          YOU AGREE TO INDEMNIFY, DEFEND, AND HOLD HARMLESS SaaSBox, ITS
           AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS, AND
           SUPPLIERS FROM AND AGAINST ANY AND ALL CLAIMS, DEMANDS, ACTIONS,
           LIABILITIES, DAMAGES, LOSSES, COSTS, EXPENSES (INCLUDING REASONABLE
@@ -456,11 +456,11 @@ const Page = () => {
         </ul>
         <p>
           This indemnification obligation will survive the termination of these
-          Terms and your use of the Service. Eckokit reserves the right, at your
+          Terms and your use of the Service. SaaSBox reserves the right, at your
           expense, to assume the exclusive defense and control of any matter
           subject to indemnification by you, and you agree to cooperate with
-          Eckokit&apos;s defense of such claims. You agree not to settle any
-          matter subject to indemnification without Eckokit&apos;s prior written
+          SaaSBox&apos;s defense of such claims. You agree not to settle any
+          matter subject to indemnification without SaaSBox&apos;s prior written
           consent.
         </p>
 
@@ -493,12 +493,12 @@ const Page = () => {
 
         <h2>17. No Warranty of Results</h2>
         <p>
-          ECKOKIT MAKES NO REPRESENTATIONS OR WARRANTIES REGARDING THE RESULTS
+          SaaSBox MAKES NO REPRESENTATIONS OR WARRANTIES REGARDING THE RESULTS
           YOU MAY ACHIEVE THROUGH USE OF THE SERVICE. You acknowledge that:
         </p>
         <ul>
           <li>
-            The Service is a technology platform, and Eckokit does not guarantee
+            The Service is a technology platform, and SaaSBox does not guarantee
             any specific business outcomes, call success rates, or performance
             metrics
           </li>
@@ -516,14 +516,14 @@ const Page = () => {
           </li>
         </ul>
         <p>
-          You use the Service at your own risk, and Eckokit shall not be liable
+          You use the Service at your own risk, and SaaSBox shall not be liable
           for any failure to achieve desired results or outcomes.
         </p>
 
         <h2>18. Entire Agreement</h2>
         <p>
           These Terms, together with our Privacy Policy, constitute the entire
-          agreement between you and Eckokit regarding the Service and supersede
+          agreement between you and SaaSBox regarding the Service and supersede
           all prior agreements and understandings.
         </p>
 
@@ -534,7 +534,7 @@ const Page = () => {
         </p>
         <p>
           <strong>Email:</strong>{" "}
-          <a href="mailto:support@eckokit.com">support@eckokit.com</a>
+          <a href="mailto:support@saasbox.app">support@saasbox.app</a>
         </p>
         <p>
           <strong>Phone:</strong> <a href="tel:+61452590455">+61 452 590 455</a>
@@ -545,7 +545,7 @@ const Page = () => {
         </p>
 
         <p>
-          By using Eckokit, you acknowledge that you have read, understood, and
+          By using SaaSBox, you acknowledge that you have read, understood, and
           agree to be bound by these Terms of Service.
         </p>
       </article>

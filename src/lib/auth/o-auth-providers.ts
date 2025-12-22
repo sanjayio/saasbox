@@ -1,4 +1,4 @@
-import { GitHubIcon } from "@/components/eckokit/auth/o-auth-icons";
+import { GitHubIcon } from "@/components/saasbox/auth/o-auth-icons";
 import { ComponentProps, ElementType } from "react";
 
 export const SUPPORTED_OAUTH_PROVIDERS = ["github"] as const;

@@ -11,7 +11,7 @@ import {
   ac,
   admin as adminRole,
   user as userRole,
-} from "@/components/eckokit/auth/permissions";
+} from "@/components/saasbox/auth/permissions";
 import { stripeClient } from "@better-auth/stripe/client";
 
 export const authClient = createAuthClient({

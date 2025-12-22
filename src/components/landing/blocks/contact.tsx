@@ -23,10 +23,10 @@ export default function Contact() {
                 <div>
                   <p className="text-lg font-semibold">Email</p>
                   <Link
-                    href="mailto:support@eckokit.com"
+                    href="mailto:support@saasbox.app"
                     className="text-muted-foreground hover:text-foreground mb-4"
                   >
-                    support@eckokit.com
+                    support@saasbox.app
                   </Link>
                 </div>
                 <div className="my-8">
@@ -50,7 +50,7 @@ export default function Contact() {
                       <Facebook className="size-5" />
                     </Link>
                     <Link
-                      href="https://x.com/eckokit"
+                      href="https://x.com/saasbox"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-foreground"
@@ -58,7 +58,7 @@ export default function Contact() {
                       <Twitter className="size-5" />
                     </Link>
                     <Link
-                      href="https://www.linkedin.com/company/eckokit"
+                      href="https://www.linkedin.com/company/saasbox"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-foreground"

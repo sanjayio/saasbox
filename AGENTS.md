@@ -1,6 +1,6 @@
-# Eckokit
+# SaaS Box
 
-Eckokit is an all in one platform to build and maintain AI Voice agents and automations.
+SaaS Box is an all in one toolkit for SaaS builders.
 
 ## Core Commands
 
@@ -18,7 +18,7 @@ This is a monorepo.
 ├─ src/app → NextJS 16 frontend and Tanstack + Hono backend.
 
 • Public pages lives **only** in `src/app/(landing)`
-• Protected pages lives **only** in `src/app/eckokit/`
+• Protected pages lives **only** in `src/app/(saasbox)/`
 • Shared components belong in `src/components`
 • DB scripts and migrations belong in `src/drizzle`
 • Server backend code belongs in `src/server`
