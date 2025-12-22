@@ -120,8 +120,8 @@ export const orgNavItems: NavGroup[] = [
     items: [{ title: "Api Keys", href: "/developer/api-keys", icon: KeyIcon }],
   },
   {
-    title: "Guides",
-    items: [{ title: "Widgets", href: "/guides/widgets", icon: Blocks }],
+    title: "Widgets",
+    items: [{ title: "Bug Reporter", href: "/widgets/bug-reporter", icon: Blocks }],
   },
 ];
 

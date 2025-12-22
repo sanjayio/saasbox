@@ -25,7 +25,7 @@ import { authClient } from "@/lib/auth/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import UsageWidget from "../../agent/usage-widget";
+import UsageWidget from "../../organizations/usage-widget";
 
 export default function UserMenu() {
   const { data: session } = authClient.useSession();

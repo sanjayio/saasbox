@@ -1,6 +1,6 @@
 import { generateMeta } from "@/lib/utils";
 import { redirect } from "next/navigation";
-import AgentContent from "./agent-content";
+import WidgetsContent from "./widgets-content";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth/auth";
 import { db } from "@/drizzle/db";
@@ -9,9 +9,9 @@ import { user } from "@/drizzle/schemas/auth-schema";
 
 export async function generateMetadata() {
   return generateMeta({
-    title: "EditAgent",
-    description: "Edit an agent",
-    canonical: "/agents/[agent_id]",
+    title: "Bug Reporter",
+    description: "Bug Reporter for your website",
+    canonical: "/widgets/bug-reporter",
   });
 }
 
@@ -34,7 +34,7 @@ export default async function Page() {
 
   return (
     <>
-      <AgentContent user={session.user} />
+      <WidgetsContent />
     </>
   );
 }

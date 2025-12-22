@@ -37,7 +37,7 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { authClient } from "@/lib/auth/auth-client";
 import { toast } from "sonner";
-import UsageWidget from "../../agent/usage-widget";
+import UsageWidget from "../../organizations/usage-widget";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [queryClient] = useState(() => new QueryClient());

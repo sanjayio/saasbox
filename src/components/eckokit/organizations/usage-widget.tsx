@@ -1,4 +1,4 @@
-import { useGetUsageByOrganizationId } from "@/hooks/use-agent";
+// import { useGetUsageByOrganizationId } from "@/hooks/use-agent";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -9,10 +9,11 @@ const UsageWidget = () => {
   const { data: activeOrganization, isPending: isActiveOrganizationLoading } =
     authClient.useActiveOrganization();
 
-  const { data: usage, isPending: isUsageLoading } =
-    useGetUsageByOrganizationId(activeOrganization?.id ?? "");
-
-  if (isUsageLoading || isActiveOrganizationLoading || !usage) {
+  // const { data: usage, isPending: isUsageLoading } =
+  //   useGetUsageByOrganizationId(activeOrganization?.id ?? "");
+  
+  // if (isUsageLoading || isActiveOrganizationLoading || !usage) {
+  if (isActiveOrganizationLoading) {
     return (
       <div className="bg-foreground/10 mt-1.5 rounded-md border">
         <div className="space-y-3 p-3">
@@ -41,19 +42,19 @@ const UsageWidget = () => {
         <div className="flex items-center justify-between">
           <h4 className="text-sm font-medium">Minutes</h4>
           <div className="text-muted-foreground flex items-center text-sm">
-            <span className="mx-1">{usage.totalMinutes.toFixed(2)} / 200</span>
+            <span className="mx-1">{50} / 200</span>
             mins
           </div>
         </div>
-        <Progress value={(usage.totalMinutes / 200) * 100} />
+        <Progress value={(50 / 200) * 100} />
         <div className="flex items-center justify-between">
           <h4 className="text-sm font-medium">Calls</h4>
           <div className="text-muted-foreground flex items-center text-sm">
-            <span className="mx-1">{usage?.totalCalls} / 155</span>
+            <span className="mx-1">{10} / 155</span>
             calls
           </div>
         </div>
-        <Progress value={(usage.totalCalls / 155) * 100} />
+        <Progress value={(10 / 155) * 100} />
         <div className="text-muted-foreground flex items-center justify-end text-sm">
           <Button asChild className="w-full">
             <Link href="/organizations" target="_blank">
