@@ -1,6 +1,8 @@
-# Eckokit
+# Saasbox
 
-Eckokit is an all-in-one platform to build and maintain AI Voice agents and automations.
+Saasbox is an all in one toolkit for SaaS builders. 
+
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/sanjayio/saasbox?utm_source=oss&utm_medium=github&utm_campaign=sanjayio%2Fsaasbox&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
 ## Tech Stack
 
@@ -42,7 +44,7 @@ This is a monorepo with the following layout:
 src/
 ├── app/                    # Next.js 16 frontend and backend
 │   ├── (landing)/         # Public pages
-│   └── eckokit/           # Protected pages
+│   └── (saasbox)/           # Protected pages
 ├── components/            # Shared UI components
 ├── drizzle/              # Database schemas and migrations
 ├── server/               # Backend API code
