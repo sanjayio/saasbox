@@ -13,7 +13,6 @@ Saasbox is an all in one toolkit for SaaS builders.
 - **Security**: Arcjet for rate limiting and protection
 - **Email**: Resend
 - **Payments**: Stripe
-- **Voice AI**: Elevenlabs
 
 ## Getting Started
 

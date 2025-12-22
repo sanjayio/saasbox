@@ -13,7 +13,7 @@ import {
   ac,
   admin as adminRole,
   user as userRole,
-} from "@/components/eckokit/auth/permissions";
+} from "@/components/saasbox/auth/permissions";
 import { admin } from "better-auth/plugins/admin";
 import { organization } from "better-auth/plugins/organization";
 import { sendOrganizationInviteEmail } from "../emails/organization-invite-email";
@@ -32,7 +32,7 @@ const stripeClient = new Stripe(stripeApiKey, {
 });
 
 export const auth = betterAuth({
-  appName: "Eckokit",
+  appName: "SaaSBox",
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,

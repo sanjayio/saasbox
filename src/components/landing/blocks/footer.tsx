@@ -6,7 +6,7 @@ import { Button } from "@/components/landing/ui/button";
 
 export function Footer() {
   const navigation = [
-    { name: "Why Eckokit?", href: "/#why-eckokit" },
+    { name: "Why SaaSBox?", href: "/#why-saasbox" },
     { name: "About Us", href: "/about" },
     { name: "Pricing", href: "/pricing" },
     { name: "FAQ", href: "/faq" },
@@ -14,8 +14,8 @@ export function Footer() {
   ];
 
   const social = [
-    { name: "Xwitter", href: "https://x.com/eckokit" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/company/eckokit" },
+    { name: "Xwitter", href: "https://x.com/saasbox" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/saasbox" },
     {
       name: "Facebook",
       href: "https://www.facebook.com/profile.php?id=61584605127931",
@@ -98,13 +98,13 @@ export function Footer() {
             fontFamily="Inter, system-ui, Arial, sans-serif"
             fontSize="180"
             fontWeight="bold"
-            fill="url(#eckokitGradient)"
+            fill="url(#saasboxGradient)"
           >
             ecko
           </text>
           <defs>
             <linearGradient
-              id="eckokitGradient"
+              id="saasboxGradient"
               x1="0"
               y1="90"
               x2="0"

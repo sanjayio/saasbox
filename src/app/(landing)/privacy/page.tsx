@@ -12,7 +12,7 @@ const Page = () => {
         </p>
 
         <p>
-          Thank you for visiting Eckokit (&quot;we,&quot; &quot;us,&quot; or
+          Thank you for visiting SaaSBox (&quot;we,&quot; &quot;us,&quot; or
           &quot;our&quot;). This Privacy Policy outlines how we collect, use,
           and protect your personal and non-personal information when you use
           our website and platform (collectively, the &quot;Service&quot;).
@@ -122,7 +122,7 @@ const Page = () => {
           our Service, your information may be shared with these third parties
           as necessary to provide the Service. We are not responsible for the
           privacy practices, data security, or data handling of these
-          third-party services. You acknowledge and agree that Eckokit shall not
+          third-party services. You acknowledge and agree that SaaSBox shall not
           be liable for any issues, breaches, or violations arising from
           third-party service providers&apos; handling of your information.
         </p>
@@ -137,10 +137,10 @@ const Page = () => {
         </p>
         <p>
           <strong>No Warranty of Security:</strong> YOU ACKNOWLEDGE AND AGREE
-          THAT ECKOKIT DOES NOT WARRANT OR GUARANTEE THE SECURITY OF YOUR
+          THAT SaaSBox DOES NOT WARRANT OR GUARANTEE THE SECURITY OF YOUR
           INFORMATION. Despite our security measures, unauthorized access,
           hacking, data breaches, or other security incidents may occur. You use
-          the Service and transmit information at your own risk. Eckokit shall
+          the Service and transmit information at your own risk. SaaSBox shall
           not be liable for any loss, damage, or harm resulting from any
           security breach, unauthorized access, or other security incident,
           regardless of whether such incident results from our negligence or
@@ -174,7 +174,7 @@ const Page = () => {
 
         <h2>7. Children&apos;s Privacy</h2>
         <p>
-          Eckokit is not intended for children under the age of 13. We do not
+          SaaSBox is not intended for children under the age of 13. We do not
           knowingly collect personal information from children. If you are a
           parent or guardian and believe that your child has provided us with
           personal information, please contact us at the email address provided
@@ -194,8 +194,8 @@ const Page = () => {
           for ensuring that your use of the Service and any data transfers
           comply with all applicable laws and regulations in your jurisdiction,
           including but not limited to GDPR, CCPA, and other data protection
-          laws. Eckokit is not responsible for your compliance with such laws,
-          and you agree to indemnify and hold Eckokit harmless from any claims
+          laws. SaaSBox is not responsible for your compliance with such laws,
+          and you agree to indemnify and hold SaaSBox harmless from any claims
           arising from your failure to comply with applicable data protection
           laws.
         </p>
@@ -247,26 +247,26 @@ const Page = () => {
           </li>
         </ul>
         <p>
-          TO THE MAXIMUM EXTENT PERMITTED BY LAW, ECKOKIT, ITS AFFILIATES,
+          TO THE MAXIMUM EXTENT PERMITTED BY LAW, SaaSBox, ITS AFFILIATES,
           OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS, AND SUPPLIERS SHALL
           NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
           PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUES, DATA, USE,
           GOODWILL, OR OTHER INTANGIBLE LOSSES ARISING FROM OR RELATING TO THIS
           PRIVACY POLICY OR THE COLLECTION, USE, OR DISCLOSURE OF YOUR
           INFORMATION, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT
-          LIABILITY, OR OTHERWISE, EVEN IF ECKOKIT HAS BEEN ADVISED OF THE
+          LIABILITY, OR OTHERWISE, EVEN IF SaaSBox HAS BEEN ADVISED OF THE
           POSSIBILITY OF SUCH DAMAGES.
         </p>
         <p>
-          IN NO EVENT SHALL ECKOKIT&apos;S TOTAL LIABILITY TO YOU FOR ALL CLAIMS
+          IN NO EVENT SHALL SaaSBox&apos;s TOTAL LIABILITY TO YOU FOR ALL CLAIMS
           ARISING FROM OR RELATED TO THIS PRIVACY POLICY EXCEED THE AMOUNT YOU
-          PAID TO ECKOKIT IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR ONE
+          PAID TO SaaSBox IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR ONE
           HUNDRED DOLLARS ($100), WHICHEVER IS GREATER.
         </p>
 
         <h2>11. Indemnification</h2>
         <p>
-          YOU AGREE TO INDEMNIFY, DEFEND, AND HOLD HARMLESS ECKOKIT, ITS
+          YOU AGREE TO INDEMNIFY, DEFEND, AND HOLD HARMLESS SaaSBox, ITS
           AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS, AND
           SUPPLIERS FROM AND AGAINST ANY AND ALL CLAIMS, DEMANDS, ACTIONS,
           LIABILITIES, DAMAGES, LOSSES, COSTS, EXPENSES (INCLUDING REASONABLE
@@ -308,7 +308,7 @@ const Page = () => {
         </p>
         <p>
           <strong>Email:</strong>{" "}
-          <a href="mailto:support@eckokit.com">support@eckokit.com</a>
+          <a href="mailto:support@saasbox.app">support@saasbox.app</a>
         </p>
         <p>
           <strong>Phone:</strong> <a href="tel:+61452590455">+61 452 590 455</a>
@@ -319,7 +319,7 @@ const Page = () => {
         </p>
 
         <p>
-          By using Eckokit, you consent to the terms of this Privacy Policy.
+          By using SaaSBox, you consent to the terms of this Privacy Policy.
         </p>
       </article>
     </section>

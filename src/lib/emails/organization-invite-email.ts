@@ -26,9 +26,9 @@ export async function sendOrganizationInviteEmail({
         <p>Hello ${inviter.name},</p>
         <p>${inviter.name} invited you to join the ${organization.name} organization. Please click the button below to accept/reject the invitation:</p>
         <a href="${inviteUrl}" style="background-color: #28a745; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; display: inline-block; margin: 16px 0;">Manage Invitation</a>
-        <p>Best regards,<br>Eckokit Team</p>
+        <p>Best regards,<br>SaaSBox Team</p>
       </div>
     `,
-    text: `You're invited to join the ${organization.name} organization\n\nHello ${inviter.name},\n\n${inviter.name} invited you to join the ${organization.name} organization. Please click the link below to accept/reject the invitation:\n\n${inviteUrl}\n\nBest regards,\nEckokit Team`,
+    text: `You're invited to join the ${organization.name} organization\n\nHello ${inviter.name},\n\n${inviter.name} invited you to join the ${organization.name} organization. Please click the link below to accept/reject the invitation:\n\n${inviteUrl}\n\nBest regards,\nSaaSBox Team`,
   });
 }

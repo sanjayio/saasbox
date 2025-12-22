@@ -14,7 +14,7 @@ export const getBaseUrl = () => {
 
   return process.env.NODE_ENV === "development"
     ? "http://localhost:3000/"
-    : "https://eckokit.com/";
+    : "https://www.saasbox.app/";
 };
 
 export const baseClient = hc<AppType>(getBaseUrl(), {
