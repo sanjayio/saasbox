@@ -67,12 +67,12 @@ export const orgNavItems: NavGroup[] = [
     items: [
       {
         title: "Bug Reporter",
-        href: "/dashboards/bug-reporter",
+        href: "/dashboard/bug-reporter",
         icon: GaugeIcon,
       },
       {
         title: "Usage",
-        href: "/dashboards/usage",
+        href: "/dashboard/usage",
         icon: GaugeIcon,
       },
     ]
@@ -82,7 +82,7 @@ export const orgNavItems: NavGroup[] = [
     items: [
       {
         title: "Bug Reports",
-        href: "/reporting/bug-reporter",
+        href: "/report/bug-reporter",
         icon: BugIcon,
       },
       {

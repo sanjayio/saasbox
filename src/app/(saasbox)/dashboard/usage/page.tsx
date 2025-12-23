@@ -7,6 +7,14 @@ import { db } from "@/drizzle/db";
 import { eq } from "drizzle-orm";
 import { user } from "@/drizzle/schemas/auth-schema";
 
+export async function generateMetadata() {
+  return generateMeta({
+    title: "Dashboard",
+    description: "View your dashboard",
+    canonical: "/dashboard",
+  });
+}
+
 export default async function Page() {
   const headersList = await headers();
   const session = await auth.api.getSession({ headers: headersList });
@@ -15,5 +23,18 @@ export default async function Page() {
     return redirect("/auth/sign-in");
   }
 
-  return redirect("/dashboard/bug-reporter");
+  const currentUser = await db.query.user.findFirst({
+    columns: { id: true },
+    where: eq(user.id, session.user.id),
+  });
+
+  if (!currentUser) {
+    return redirect("/auth/sign-in");
+  }
+
+  return (
+    <>
+      <DashboardContent />
+    </>
+  );
 }
