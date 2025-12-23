@@ -96,7 +96,7 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
           }
         );
       } else {
-        route.get(path, ...operationMiddlewares, async (c) => {
+        route.get(path as any, ...operationMiddlewares, async (c) => {
           const ctx = c.get("__middleware_output") || {};
 
           return (await operation.handler({
@@ -138,7 +138,7 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
           }
         );
       } else {
-        route.post(path, ...operationMiddlewares, async (c) => {
+        route.post(path as any, ...operationMiddlewares, async (c) => {
           const ctx = c.get("__middleware_output") || {};
 
           return (await operation.handler({
