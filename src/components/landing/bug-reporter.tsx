@@ -34,14 +34,14 @@ declare global {
 export function BugReporter() {
 	return (
 		<Script
-			src="https://unpkg.com/saasbox-bug-reporter@1.0.3/dist/bug-reporter.min.js"
+			src="https://unpkg.com/saasbox-bug-reporter@1.0.7/dist/bug-reporter.min.js"
 			strategy="afterInteractive"
 			onLoad={() => {
 				if (typeof window !== 'undefined' && window.BugReporter) {
 					window.BugReporter.init({
-						apiEndpoint: 'https://saasbox.app/api/bug-reporter',
-						saasBoxKey: 'demo-saasbox-key-123',
-						saasBoxSecret: 'demo-saasbox-secret-456',
+						apiEndpoint: 'http://localhost:3000/api/bug-reports',
+						saasBoxKey: 'sbx-key-e64b7b6403d744859ea78276ec46e422',
+						saasBoxSecret: 'sbx-secret-1187047c48d4409fbba532998b3ce26b',
 						screenshotMode: 'selection',
 						position: 'bottom-left',
 						offsetX: 30,
