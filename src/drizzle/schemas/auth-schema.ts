@@ -38,6 +38,7 @@ export const session = pgTable(
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
       .$onUpdate(() => /* @__PURE__ */ new Date())
+      .defaultNow()
       .notNull(),
     ipAddress: text("ip_address"),
     userAgent: text("user_agent"),
@@ -69,6 +70,7 @@ export const account = pgTable(
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
       .$onUpdate(() => /* @__PURE__ */ new Date())
+      .defaultNow()
       .notNull(),
   },
   (table) => [index("account_userId_idx").on(table.userId)],
@@ -125,7 +127,7 @@ export const passkey = pgTable(
   },
   (table) => [
     index("passkey_userId_idx").on(table.userId),
-    index("passkey_credentialID_idx").on(table.credentialID),
+    uniqueIndex("passkey_credentialID_uidx").on(table.credentialID),
   ],
 );
 
@@ -134,13 +136,16 @@ export const organization = pgTable(
   {
     id: text("id").primaryKey(),
     name: text("name").notNull(),
-    slug: text("slug").notNull().unique(),
+    slug: text("slug").notNull(),
     logo: text("logo"),
     createdAt: timestamp("created_at").notNull(),
     metadata: text("metadata"),
-    domain: text("domain").notNull().unique(),
+    domain: text("domain").notNull(),
   },
-  (table) => [uniqueIndex("organization_slug_uidx").on(table.slug)],
+  (table) => [
+    uniqueIndex("organization_slug_uidx").on(table.slug),
+    uniqueIndex("organization_domain_uidx").on(table.domain),
+  ],
 );
 
 export const member = pgTable(
@@ -159,6 +164,7 @@ export const member = pgTable(
   (table) => [
     index("member_organizationId_idx").on(table.organizationId),
     index("member_userId_idx").on(table.userId),
+    uniqueIndex("member_organizationId_userId_uidx").on(table.organizationId, table.userId),
   ],
 );
 

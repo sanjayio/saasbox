@@ -57,7 +57,7 @@ const UsageWidget = () => {
         <Progress value={(10 / 155) * 100} />
         <div className="text-muted-foreground flex items-center justify-end text-sm">
           <Button asChild className="w-full">
-            <Link href="/organizations" target="_blank">
+            <Link href="/pricing" target="_blank">
               Upgrade
               <ArrowTopRightIcon className="ml-1 h-4 w-4" />
             </Link>
