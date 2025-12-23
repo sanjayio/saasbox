@@ -11,9 +11,9 @@ export async function sendOrganizationInviteEmail({
   organization: { name: string };
   email: string;
 }) {
-  const baseUrl = process.env.BETTER_AUTH_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   if (!baseUrl) {
-    throw new Error("BETTER_AUTH_URL environment variable is required");
+    throw new Error("NEXT_PUBLIC_SITE_URL environment variable is required");
   }
   const inviteUrl = `${baseUrl}/organizations/invites/${invitation.id}`;
 
