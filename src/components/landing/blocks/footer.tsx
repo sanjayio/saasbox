@@ -100,7 +100,7 @@ export function Footer() {
             fontWeight="bold"
             fill="url(#saasboxGradient)"
           >
-            saasbox
+            ssbx
           </text>
           <defs>
             <linearGradient
