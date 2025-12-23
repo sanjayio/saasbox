@@ -71,6 +71,7 @@ export function OrganizationSelect() {
         {organizations.map((org) => (
           <SelectItem key={org.id} value={org.id}>
             {org.name}
+            <span className="text-xs text-muted-foreground">{org.domain}</span>
           </SelectItem>
         ))}
       </SelectContent>

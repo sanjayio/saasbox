@@ -1,6 +1,6 @@
-# SaaS Box
+# SaaSBox
 
-SaaS Box is an all in one toolkit for SaaS builders.
+SaaSBox is an all in one toolkit for SaaS builders.
 
 ## Core Commands
 

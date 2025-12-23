@@ -17,14 +17,14 @@ export function generateMeta({
   canonical: string;
 }): Metadata {
   return {
-    title: `${title} - ZenvoFlow`,
+    title: `${title} - SaaSBox`,
     description: description,
-    metadataBase: new URL(`https://zenvoflow.com`),
+    metadataBase: new URL(`https://www.saasbox.app`),
     alternates: {
       canonical: `/${canonical}`,
     },
     openGraph: {
-      images: [`https://zenvoflow.com/seo.png`],
+      images: [`https://www.saasbox.app/seo.png`],
     },
   };
 }

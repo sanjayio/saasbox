@@ -1,7 +1,8 @@
 import { StripePlan } from "@better-auth/stripe";
 
 const STRIPE_STARTER_PRICE_ID = process.env.STRIPE_STARTER_PRICE_ID!;
-const STRIPE_PRO_PRICE_ID = process.env.STRIPE_PRO_PRICE_ID!;
+const STRIPE_GROWTH_PRICE_ID = process.env.STRIPE_GROWTH_PRICE_ID!;
+const STRIPE_SCALE_PRICE_ID = process.env.STRIPE_SCALE_PRICE_ID!;
 
 export const STRIPE_PLANS = [
   {
@@ -12,8 +13,15 @@ export const STRIPE_PLANS = [
     },
   },
   {
-    name: "pro",
-    priceId: STRIPE_PRO_PRICE_ID,
+    name: "growth",
+    priceId: STRIPE_GROWTH_PRICE_ID,
+    limits: {
+      projects: 50,
+    },
+  },
+  {
+    name: "scale",
+    priceId: STRIPE_SCALE_PRICE_ID,
     limits: {
       projects: 50,
     },
@@ -21,6 +29,7 @@ export const STRIPE_PLANS = [
 ] as const satisfies StripePlan[];
 
 export const PLAN_TO_PRICE: Record<string, number> = {
-  starter: 149,
-  pro: 399,
+  starter: 6.99,
+  growth: 12.99,
+  scale: 24.99,
 };

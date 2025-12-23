@@ -26,16 +26,16 @@ const ITEMS = [
     href: "#features",
     dropdownItems: [
       {
-        title: "Why SaaS Box?",
+        title: "Why SaaSBox?",
         href: "/#why-saas-box",
         description:
-          "Learn why SaaS Box is the best way to grow your SaaS business.",
+          "Learn why SaaSBox is the best way to grow your SaaS business.",
       },
       {
         title: "How it works",
         href: "/#how-it-works",
         description:
-          "Learn how SaaS Box is redefining SaaS businesses with tools and integrations.",
+          "Learn how SaaSBox is redefining SaaS businesses with tools and integrations.",
       },
     ],
   },
@@ -65,7 +65,7 @@ export const Navbar = () => {
             height={28}
             className="dark:invert"
           />
-          <span className="text-xl font-bold italic">SaaS Box</span>
+          <span className="text-xl font-bold italic">SaaSBox</span>
         </Link>
 
         {/* Desktop Navigation */}

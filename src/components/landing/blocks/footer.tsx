@@ -100,7 +100,7 @@ export function Footer() {
             fontWeight="bold"
             fill="url(#saasboxGradient)"
           >
-            ecko
+            saasbox
           </text>
           <defs>
             <linearGradient

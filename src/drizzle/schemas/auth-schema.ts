@@ -6,7 +6,6 @@ import {
   boolean,
   integer,
   index,
-  unique,
   uniqueIndex,
 } from "drizzle-orm/pg-core";
 
@@ -16,9 +15,10 @@ export const user = pgTable("user", {
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").default(false).notNull(),
   image: text("image"),
-  createdAt: timestamp("created_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at")
-    .$onUpdate(() => new Date())
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
   twoFactorEnabled: boolean("two_factor_enabled").default(false),
   role: text("role"),
@@ -35,9 +35,10 @@ export const session = pgTable(
     id: text("id").primaryKey(),
     expiresAt: timestamp("expires_at").notNull(),
     token: text("token").notNull().unique(),
-    createdAt: timestamp("created_at").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
-      .$onUpdate(() => new Date())
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .defaultNow()
       .notNull(),
     ipAddress: text("ip_address"),
     userAgent: text("user_agent"),
@@ -47,7 +48,7 @@ export const session = pgTable(
     impersonatedBy: text("impersonated_by"),
     activeOrganizationId: text("active_organization_id"),
   },
-  (table) => [index("session_userId_idx").on(table.userId)]
+  (table) => [index("session_userId_idx").on(table.userId)],
 );
 
 export const account = pgTable(
@@ -66,18 +67,13 @@ export const account = pgTable(
     refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
     scope: text("scope"),
     password: text("password"),
-    createdAt: timestamp("created_at").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
-      .$onUpdate(() => new Date())
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .defaultNow()
       .notNull(),
   },
-  (table) => [
-    index("account_userId_idx").on(table.userId),
-    unique("account_provider_accountId_unique").on(
-      table.providerId,
-      table.accountId
-    ),
-  ]
+  (table) => [index("account_userId_idx").on(table.userId)],
 );
 
 export const verification = pgTable(
@@ -87,12 +83,13 @@ export const verification = pgTable(
     identifier: text("identifier").notNull(),
     value: text("value").notNull(),
     expiresAt: timestamp("expires_at").notNull(),
-    createdAt: timestamp("created_at").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
-      .$onUpdate(() => new Date())
+      .defaultNow()
+      .$onUpdate(() => /* @__PURE__ */ new Date())
       .notNull(),
   },
-  (table) => [index("verification_identifier_idx").on(table.identifier)]
+  (table) => [index("verification_identifier_idx").on(table.identifier)],
 );
 
 export const twoFactor = pgTable(
@@ -108,7 +105,7 @@ export const twoFactor = pgTable(
   (table) => [
     index("twoFactor_secret_idx").on(table.secret),
     index("twoFactor_userId_idx").on(table.userId),
-  ]
+  ],
 );
 
 export const passkey = pgTable(
@@ -130,21 +127,26 @@ export const passkey = pgTable(
   },
   (table) => [
     index("passkey_userId_idx").on(table.userId),
-    uniqueIndex("passkey_user_credential_unique").on(
-      table.userId,
-      table.credentialID
-    ),
-  ]
+    uniqueIndex("passkey_credentialID_uidx").on(table.credentialID),
+  ],
 );
 
-export const organization = pgTable("organization", {
-  id: text("id").primaryKey(),
-  name: text("name").notNull(),
-  slug: text("slug").notNull().unique(),
-  logo: text("logo"),
-  createdAt: timestamp("created_at").notNull(),
-  metadata: text("metadata"),
-});
+export const organization = pgTable(
+  "organization",
+  {
+    id: text("id").primaryKey(),
+    name: text("name").notNull(),
+    slug: text("slug").notNull(),
+    logo: text("logo"),
+    createdAt: timestamp("created_at").notNull(),
+    metadata: text("metadata"),
+    domain: text("domain").notNull(),
+  },
+  (table) => [
+    uniqueIndex("organization_slug_uidx").on(table.slug),
+    uniqueIndex("organization_domain_uidx").on(table.domain),
+  ],
+);
 
 export const member = pgTable(
   "member",
@@ -162,8 +164,8 @@ export const member = pgTable(
   (table) => [
     index("member_organizationId_idx").on(table.organizationId),
     index("member_userId_idx").on(table.userId),
-    unique("member_org_user_unique").on(table.organizationId, table.userId),
-  ]
+    uniqueIndex("member_organizationId_userId_uidx").on(table.organizationId, table.userId),
+  ],
 );
 
 export const invitation = pgTable(
@@ -177,7 +179,7 @@ export const invitation = pgTable(
     role: text("role"),
     status: text("status").default("pending").notNull(),
     expiresAt: timestamp("expires_at").notNull(),
-    createdAt: timestamp("created_at").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
     inviterId: text("inviter_id")
       .notNull()
       .references(() => user.id, { onDelete: "cascade" }),
@@ -185,7 +187,7 @@ export const invitation = pgTable(
   (table) => [
     index("invitation_organizationId_idx").on(table.organizationId),
     index("invitation_email_idx").on(table.email),
-  ]
+  ],
 );
 
 export const subscription = pgTable("subscription", {

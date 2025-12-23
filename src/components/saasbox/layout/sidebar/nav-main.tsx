@@ -22,12 +22,12 @@ import {
   type LucideIcon,
   SettingsIcon,
   HomeIcon,
-  BotIcon,
   WrenchIcon,
   BookIcon,
   FileIcon,
   Blocks,
   PlusIcon,
+  BugIcon,
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -63,33 +63,27 @@ type NavItem = {
 
 export const orgNavItems: NavGroup[] = [
   {
-    title: "Platform",
+    title: "Dashboards",
     items: [
       {
-        title: "Dashboard",
-        href: "/dashboard",
+        title: "Bug Reporter",
+        href: "/dashboard/bug-reporter",
         icon: GaugeIcon,
       },
       {
-        title: "Agents",
-        href: "#",
-        icon: BotIcon,
-        items: [
-          { title: "View All", href: "/agents" },
-          { title: "New Agent", href: "/agents/new" },
-        ],
+        title: "Usage",
+        href: "/dashboard/usage",
+        icon: GaugeIcon,
       },
+    ]
+  },
+  {
+    title: "Reports",
+    items: [
       {
-        title: "Tools",
-        href: "#",
-        icon: WrenchIcon,
-        items: [
-          {
-            title: "Request New",
-            href: "/tools/request-new",
-            icon: PlusIcon,
-          },
-        ],
+        title: "Bug Reports",
+        href: "/report/bug-reporter",
+        icon: BugIcon,
       },
       {
         title: "Analytics",
@@ -101,6 +95,16 @@ export const orgNavItems: NavGroup[] = [
           { title: "Customers", href: "/analytics/customers" },
           { title: "Spend", href: "/analytics/spend" },
         ],
+      },
+    ],
+  },
+  {
+    title: "Analytics",
+    items: [
+      {
+        title: "Bug Reporter",
+        href: "/analytics/bug-reporter",
+        icon: BugIcon,
       },
     ],
   },
@@ -117,11 +121,23 @@ export const orgNavItems: NavGroup[] = [
   },
   {
     title: "Developer",
-    items: [{ title: "Api Keys", href: "/developer/api-keys", icon: KeyIcon }],
+    items: [
+      { title: "Api Keys", href: "/developer/api-keys", icon: KeyIcon },
+      {
+        title: "Integrations",
+        href: "#",
+        icon: WrenchIcon,
+        items: [
+          { title: "Email Notifications", href: "/integrations/email-notifications" },
+          { title: "Slack Notifications", href: "/integrations/slack-notifications" },
+          { title: "SMS Notifications", href: "/integrations/sms-notifications" },
+        ],
+      },
+    ],
   },
   {
-    title: "Widgets",
-    items: [{ title: "Bug Reporter", href: "/widgets/bug-reporter", icon: Blocks }],
+    title: "How to Install",
+    items: [{ title: "Bug Reporter", href: "/how-to-install/bug-reporter", icon: Blocks }],
   },
 ];
 

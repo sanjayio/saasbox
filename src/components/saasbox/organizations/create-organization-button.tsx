@@ -29,6 +29,9 @@ import { useState } from "react";
 
 const createOrganizationSchema = z.object({
   name: z.string().min(1),
+  domain: z.url().min(1).startsWith("https://", {
+    message: "Domain must start with https://",
+  }),
 });
 
 type CreateOrganizationForm = z.infer<typeof createOrganizationSchema>;
@@ -39,6 +42,7 @@ export function CreateOrganizationButton() {
     resolver: zodResolver(createOrganizationSchema),
     defaultValues: {
       name: "",
+      domain: "",
     },
   });
 
@@ -59,6 +63,7 @@ export function CreateOrganizationButton() {
     try {
       const res = await authClient.organization.create({
         name: data.name.trim(),
+        domain: data.domain.trim(),
         slug,
       });
 
@@ -99,7 +104,20 @@ export function CreateOrganizationButton() {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} placeholder="Acme Inc." />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="domain"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Domain</FormLabel>
+                  <FormControl>
+                    <Input type="url" {...field} placeholder="https://acme-inc.com" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

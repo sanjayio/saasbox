@@ -3,6 +3,7 @@ import { auth } from "./auth";
 import {
   adminClient,
   inferAdditionalFields,
+  inferOrgAdditionalFields,
   organizationClient,
   twoFactorClient,
 } from "better-auth/client/plugins";
@@ -30,7 +31,9 @@ export const authClient = createAuthClient({
         user: userRole,
       },
     }),
-    organizationClient(),
+    organizationClient({
+      schema: inferOrgAdditionalFields<typeof auth>(),
+    }),
     stripeClient({
       subscription: true,
     }),

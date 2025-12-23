@@ -90,7 +90,8 @@ export function AppSidebarInner({
                       Currently viewing as
                     </span>
                     <span className="font-semibold">
-                      {activeOrganization?.name ?? "Personal"}
+                      {activeOrganization?.name.substring(0, 20) ?? "Personal"}
+                      {activeOrganization?.name?.length && activeOrganization?.name?.length > 20 && "..."}
                     </span>
                   </div>
                   <ArrowLeftRight className="hidden group-data-[collapsible=icon]:block size-4 mx-auto" />
@@ -139,9 +140,10 @@ export function AppSidebarInner({
                           <Building className="text-muted-foreground size-4" />
                           <div className="flex flex-col">
                             <span className="text-sm font-medium">
-                              <span className="text-sm font-medium">
+                              <div className="flex flex-col gap-1">
                                 {organization.name}
-                              </span>
+                                <span className="text-xs text-muted-foreground">{organization.domain}</span>
+                              </div>
                             </span>
                           </div>
                         </div>
