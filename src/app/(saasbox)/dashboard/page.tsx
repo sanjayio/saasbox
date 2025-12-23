@@ -1,11 +1,6 @@
-import { generateMeta } from "@/lib/utils";
 import { redirect } from "next/navigation";
-import DashboardContent from "./dashboard-content";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth/auth";
-import { db } from "@/drizzle/db";
-import { eq } from "drizzle-orm";
-import { user } from "@/drizzle/schemas/auth-schema";
 
 export default async function Page() {
   const headersList = await headers();
