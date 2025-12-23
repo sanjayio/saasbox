@@ -1,10 +1,6 @@
 "use client";
 
-import { authClient } from "@/lib/auth/auth-client";
-
 export default function DashboardContent() {
-  const { data: session } = authClient.useSession();
-
   return (
     <div className="flex flex-col items-center justify-center h-96">
       <h1 className="text-3xl font-bold mb-2">Coming Soon</h1>

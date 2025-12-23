@@ -26,7 +26,6 @@ import {
   BookIcon,
   FileIcon,
   Blocks,
-  PlusIcon,
   BugIcon,
 } from "lucide-react";
 import Link from "next/link";
