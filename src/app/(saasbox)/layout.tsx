@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "SaaSBox is an all in one toolkit for SaaS builders.",
   keywords: [
-    "SaaS Box",
+    "SaaSBox",
     "SaaS Tools",
     "SaaS Integrations",
     "SaaS Automation",

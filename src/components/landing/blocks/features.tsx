@@ -40,7 +40,7 @@ export const Features = () => {
             Built for SaaS businesses of all sizes
           </h2>
           <p className="text-muted-foreground leading-snug">
-            SaaS Box is built using the latest and greatest tools and integrations, with a focus on simplicity, ease of use, and scalability.
+            SaaSBox is built using the latest and greatest tools and integrations, with a focus on simplicity, ease of use, and scalability.
           </p>
         </div>
 

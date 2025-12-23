@@ -28,7 +28,7 @@ if (!stripeApiKey) {
   throw new Error("STRIPE_SECRET_KEY is not set");
 }
 const stripeClient = new Stripe(stripeApiKey, {
-  apiVersion: "2025-11-17.clover",
+  apiVersion: "2025-12-15.clover",
 });
 
 export const auth = betterAuth({
@@ -77,6 +77,18 @@ export const auth = betterAuth({
       },
     }),
     organization({
+      schema: {
+        organization: {
+          additionalFields: {
+            domain: {
+              type: "string",
+              required: true,
+              input: true,
+              unique: true,
+            }
+          }
+        }
+      },
       sendInvitationEmail: async (data) => {
         await sendOrganizationInviteEmail({
           invitation: data.invitation,
@@ -128,6 +140,16 @@ export const auth = betterAuth({
         }
       }
     }),
+  },
+  organization: {
+    additionalFields: {
+      domain: {
+        type: "string",
+        required: true,
+        unique: true,
+        input: true,
+      },
+    },
   },
   user: {
     changeEmail: {

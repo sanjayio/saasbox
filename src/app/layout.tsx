@@ -22,13 +22,13 @@ export const metadata: Metadata = {
         : "http://localhost:3000")
   ),
   title: {
-    default: "SaaS Box",
-    template: "%s | SaaS Box",
+    default: "SaaSBox",
+    template: "%s | SaaSBox",
   },
   description:
-    "SaaS Box is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
+    "SaaSBox is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
   keywords: [
-    "SaaS Box",
+    "SaaSBox",
     "SaaS Tools",
     "SaaS Integrations",
     "SaaS Automation",
@@ -57,24 +57,24 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "SaaS Box",
+    title: "SaaSBox",
     description:
-      "SaaS Box is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
-    siteName: "SaaS Box",
+      "SaaSBox is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
+    siteName: "SaaSBox",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SaaS Box",
+        alt: "SaaSBox",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaaS Box",
+    title: "SaaSBox",
     description:
-      "SaaS Box is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
+      "SaaSBox is a swiss army knife for SaaS businesses, with tools and integrations to help you grow your business.",
     images: ["/og-image.jpg"],
     creator: "@iamsanjayofficl",
   },
