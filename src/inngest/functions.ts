@@ -84,12 +84,12 @@ export const createBugReport = inngest.createFunction(
 		});
 
 		if (!credentials || credentials.length === 0) {
-			throw new Error('Invalid SaaSBox credentials');
+			throw new Error('Invalid SaaSBox credentials 1');
 		}
 
 		const credentialRecord = credentials[0];
 		if (!credentialRecord) {
-			throw new Error('Invalid SaaSBox credentials');
+			throw new Error('Invalid SaaSBox credentials 2');
 		}
 
 		const { id: credentialId, organizationId } = credentialRecord;
