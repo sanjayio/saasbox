@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { pgTable, text, timestamp, boolean, index, jsonb } from "drizzle-orm/pg-core";
-import { user } from "./auth-schema";
+import { organization, user } from "./auth-schema";
 
 export const notification = pgTable(
   "notification",
@@ -32,9 +32,9 @@ export const credential = pgTable(
     name: text("name").notNull(),
     key: text("key").notNull(),
     secret: text("secret").notNull(),
-    userId: text("user_id")
+    organizationId: text("organization_id")
       .notNull()
-      .references(() => user.id, { onDelete: "cascade" }),
+      .references(() => organization.id, { onDelete: "cascade" }),
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at")
       .defaultNow()
@@ -51,9 +51,9 @@ export const bugReport = pgTable(
       .primaryKey()
       .default(sql`gen_random_uuid()`),
     description: text("description").notNull(),
-    userId: text("user_id")
+    organizationId: text("organization_id")
       .notNull()
-      .references(() => user.id, { onDelete: "cascade" }),
+      .references(() => organization.id, { onDelete: "cascade" }),
     credentialId: text("credential_id")
       .notNull()
       .references(() => credential.id, { onDelete: "cascade" }),

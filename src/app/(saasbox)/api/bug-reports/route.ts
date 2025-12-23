@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/drizzle/db';
-import { credential, bugReport } from '@/drizzle/schema';
-import { eq, and } from 'drizzle-orm';
+import { credential, bugReport, subscription } from '@/drizzle/schema';
+import { eq, and, desc } from 'drizzle-orm';
 
 export async function POST(request: NextRequest) {
   try {    
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     const credentials = await db
       .select({
         id: credential.id,
-        userId: credential.userId,
+        organizationId: credential.organizationId,
       })
       .from(credential)
       .where(and(eq(credential.key, saasBoxKey), eq(credential.secret, saasBoxSecret)))
@@ -67,7 +67,23 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    const { id: credentialId, userId } = credentialRecord;
+    const { id: credentialId, organizationId } = credentialRecord;
+
+    const orgSubscriptions = await db
+      .select({
+        plan: subscription.plan,
+      })
+      .from(subscription)
+      .where(and(eq(subscription.referenceId, organizationId), eq(subscription.status, "active")))
+      .orderBy(desc(subscription.periodEnd))
+      .limit(1);
+    
+    if (!orgSubscriptions || orgSubscriptions.length === 0) {
+      return NextResponse.json(
+        { error: "No active subscription found" },
+        { status: 401 }
+      );
+    }
 
     // Convert screenshot to base64 string if present
     let screenshotBase64: string | undefined;
@@ -80,7 +96,7 @@ export async function POST(request: NextRequest) {
     // Insert bug report into database using drizzle query builder
     const insertedReports = await db.insert(bugReport).values({
       description,
-      userId,
+      organizationId,
       credentialId,
       consoleLogs: parsedConsoleLogs,
       networkRequests: parsedNetworkRequests,

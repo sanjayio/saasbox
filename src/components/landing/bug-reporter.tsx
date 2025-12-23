@@ -40,8 +40,8 @@ export function BugReporter() {
 				if (typeof window !== 'undefined' && window.BugReporter) {
 					window.BugReporter.init({
 						apiEndpoint: 'http://localhost:3000/api/bug-reports',
-						saasBoxKey: 'dummy-key',
-						saasBoxSecret: 'dummy-secret',
+						saasBoxKey: 'sbx-key-e64b7b6403d744859ea78276ec46e422',
+						saasBoxSecret: 'sbx-secret-1187047c48d4409fbba532998b3ce26b',
 						screenshotMode: 'selection',
 						position: 'bottom-left',
 						offsetX: 30,

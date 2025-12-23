@@ -121,7 +121,7 @@ export const orgNavItems: NavGroup[] = [
   {
     title: "Developer",
     items: [
-      { title: "Api Keys", href: "/developer/api-keys", icon: KeyIcon },
+      { title: "Credentials", href: "/developer/credentials", icon: KeyIcon },
       {
         title: "Integrations",
         href: "#",
