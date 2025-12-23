@@ -77,6 +77,18 @@ export const auth = betterAuth({
       },
     }),
     organization({
+      schema: {
+        organization: {
+          additionalFields: {
+            domain: {
+              type: "string",
+              required: true,
+              input: true,
+              unique: true,
+            }
+          }
+        }
+      },
       sendInvitationEmail: async (data) => {
         await sendOrganizationInviteEmail({
           invitation: data.invitation,
