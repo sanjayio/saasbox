@@ -14,7 +14,7 @@ export const getBaseUrl = () => {
 
   return process.env.NODE_ENV === "development"
     ? "http://localhost:3000/"
-    : "https://www.saasbox.app/";
+    : `${process.env.BETTER_AUTH_URL}/`;
 };
 
 export const baseClient = hc<AppType>(getBaseUrl(), {
