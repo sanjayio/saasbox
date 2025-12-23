@@ -40,8 +40,8 @@ export function BugReporter() {
 				if (typeof window !== 'undefined' && window.BugReporter) {
 					window.BugReporter.init({
 						apiEndpoint: `${process.env.NEXT_PUBLIC_SITE_URL}/api/bug-reports`,
-						saasBoxKey: `${process.env.SAASBOX_CREDENTIAL_KEY}`,
-						saasBoxSecret: `${process.env.SAASBOX_CREDENTIAL_SECRET}`,
+						saasBoxKey: `${process.env.NEXT_PUBLIC_SAASBOX_CREDENTIAL_KEY}`,
+						saasBoxSecret: `${process.env.NEXT_PUBLIC_SAASBOX_CREDENTIAL_SECRET}`,
 						screenshotMode: 'selection',
 						position: 'bottom-left',
 						offsetX: 30,
