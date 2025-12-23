@@ -33,6 +33,7 @@ const stripeClient = new Stripe(stripeApiKey, {
 
 export const auth = betterAuth({
   appName: "SaaSBox",
+  trustedOrigins: [process.env.BETTER_AUTH_URL!],
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,

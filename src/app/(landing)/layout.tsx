@@ -2,6 +2,7 @@ import { Footer } from "@/components/landing/blocks/footer";
 import { Navbar } from "@/components/landing/blocks/navbar";
 import { StyleGlideProvider } from "@/components/landing/styleglide-provider";
 import { ThemeProvider } from "@/components/landing/theme-provider";
+import { BugReporter } from "@/components/landing/bug-reporter";
 import "./globals.css";
 
 export default function RootLayout({
@@ -22,6 +23,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
       </ThemeProvider>
+      <BugReporter />
     </body>
   );
 }

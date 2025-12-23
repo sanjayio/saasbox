@@ -141,8 +141,12 @@ export function AppSidebarInner({
                           <div className="flex flex-col">
                             <span className="text-sm font-medium">
                               <div className="flex flex-col gap-1">
-                                {organization.name}
-                                <span className="text-xs text-muted-foreground">{organization.domain}</span>
+                                {organization.name.substring(0, 20)}
+                                {organization.name.length && organization.name.length > 20 && "..."}
+                                <span className="text-xs text-muted-foreground">
+                                  {organization.domain.substring(0, 20)}
+                                  {organization.domain.length && organization.domain.length > 20 && "..."}
+                                </span>
                               </div>
                             </span>
                           </div>
