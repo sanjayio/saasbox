@@ -40,8 +40,8 @@ export function BugReporter() {
 				if (typeof window !== 'undefined' && window.BugReporter) {
 					window.BugReporter.init({
 						apiEndpoint: `${process.env.BETTER_AUTH_URL}/api/bug-reports`,
-						saasBoxKey: 'sbx-key-e64b7b6403d744859ea78276ec46e422',
-						saasBoxSecret: 'sbx-secret-1187047c48d4409fbba532998b3ce26b',
+						saasBoxKey: `${process.env.SAASBOX_CREDENTIAL_KEY}`,
+						saasBoxSecret: `${process.env.SAASBOX_CREDENTIAL_SECRET}`,
 						screenshotMode: 'selection',
 						position: 'bottom-left',
 						offsetX: 30,
