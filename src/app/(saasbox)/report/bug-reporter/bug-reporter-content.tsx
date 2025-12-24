@@ -150,7 +150,13 @@ export default function BugReporterContent() {
   }
 
   return (
-    <div className="max-w-2xl container my-4 px-4">
+    <div className="max-w-2xl mb-4 p-2 flex flex-col space-y-4">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold tracking-tight">Bug Reports</h1>
+        <p className="text-muted-foreground mt-2">
+          All reported bugs for the organization.
+        </p>
+      </div>
       <Dialog
         open={previewImage !== null}
         onOpenChange={(open) => !open && setPreviewImage(null)}

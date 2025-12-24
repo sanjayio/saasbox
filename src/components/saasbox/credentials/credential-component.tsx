@@ -4,16 +4,24 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useDeleteCredential, useGetCredentialsByOrganizationId } from "@/hooks/use-credential";
+import {
+  useDeleteCredential,
+  useGetCredentialsByOrganizationId,
+} from "@/hooks/use-credential";
 import { authClient } from "@/lib/auth/auth-client";
 import { Copy, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { CreateCredentialButton } from "./create-credential-button";
 
 export function CredentialComponent() {
   const { data: activeOrganization } = authClient.useActiveOrganization();
-  const { data: credentials, isPending: isLoadingCredentials } = useGetCredentialsByOrganizationId(activeOrganization?.id || "");
-  const { mutate: deleteCredential, isPending: isDeletingCredential } = useDeleteCredential();
-  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null);
+  const { data: credentials, isPending: isLoadingCredentials } =
+    useGetCredentialsByOrganizationId(activeOrganization?.id || "");
+  const { mutate: deleteCredential, isPending: isDeletingCredential } =
+    useDeleteCredential();
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(
+    null
+  );
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -56,12 +64,6 @@ export function CredentialComponent() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col items-start justify-start space-y-2 max-w-2xl">
-        <h1 className="text-2xl font-bold">Your Credentials</h1>
-        <p className="text-muted-foreground">
-          Here are your credentials for the organization. You can use these credentials to authenticate your widgets.
-        </p>
-      </div>
       {credentials.credentials.map((credential) => (
         <Card key={credential.id} className="max-w-2xl">
           <CardHeader>

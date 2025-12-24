@@ -61,21 +61,21 @@ type NavItem = {
 }[];
 
 export const orgNavItems: NavGroup[] = [
-  {
-    title: "Dashboards",
-    items: [
-      {
-        title: "Bug Reporter",
-        href: "/dashboard/bug-reporter",
-        icon: GaugeIcon,
-      },
-      {
-        title: "Usage",
-        href: "/dashboard/usage",
-        icon: GaugeIcon,
-      },
-    ]
-  },
+  // {
+  //   title: "Dashboards",
+  //   items: [
+  //     {
+  //       title: "Bug Reporter",
+  //       href: "/dashboard/bug-reporter",
+  //       icon: GaugeIcon,
+  //     },
+  //     {
+  //       title: "Usage",
+  //       href: "/dashboard/usage",
+  //       icon: GaugeIcon,
+  //     },
+  //   ]
+  // },
   {
     title: "Reports",
     items: [
@@ -84,40 +84,19 @@ export const orgNavItems: NavGroup[] = [
         href: "/report/bug-reporter",
         icon: BugIcon,
       },
-      {
-        title: "Analytics",
-        href: "#",
-        icon: ChartPieIcon,
-        items: [
-          { title: "Conversations", href: "/analytics/conversations" },
-          { title: "Agents", href: "/analytics/agents" },
-          { title: "Customers", href: "/analytics/customers" },
-          { title: "Spend", href: "/analytics/spend" },
-        ],
-      },
     ],
   },
-  {
-    title: "Analytics",
-    items: [
-      {
-        title: "Bug Reporter",
-        href: "/analytics/bug-reporter",
-        icon: BugIcon,
-      },
-    ],
-  },
-  {
-    title: "Knowledge Base",
-    items: [
-      { title: "Notes", href: "/knowledge-base/notes", icon: BookIcon },
-      {
-        title: "Files",
-        href: "/knowledge-base/files",
-        icon: FileIcon,
-      },
-    ],
-  },
+  // {
+  //   title: "Knowledge Base",
+  //   items: [
+  //     { title: "Notes", href: "/knowledge-base/notes", icon: BookIcon },
+  //     {
+  //       title: "Files",
+  //       href: "/knowledge-base/files",
+  //       icon: FileIcon,
+  //     },
+  //   ],
+  // },
   {
     title: "Developer",
     items: [
@@ -127,16 +106,31 @@ export const orgNavItems: NavGroup[] = [
         href: "#",
         icon: WrenchIcon,
         items: [
-          { title: "Email Notifications", href: "/integrations/email-notifications" },
-          { title: "Slack Notifications", href: "/integrations/slack-notifications" },
-          { title: "SMS Notifications", href: "/integrations/sms-notifications" },
+          {
+            title: "Email Notifications",
+            href: "/integrations/email-notifications",
+          },
+          {
+            title: "Slack Notifications",
+            href: "/integrations/slack-notifications",
+          },
+          {
+            title: "SMS Notifications",
+            href: "/integrations/sms-notifications",
+          },
         ],
       },
     ],
   },
   {
     title: "How to Install",
-    items: [{ title: "Bug Reporter", href: "/how-to-install/bug-reporter", icon: Blocks }],
+    items: [
+      {
+        title: "Bug Reporter",
+        href: "/how-to-install/bug-reporter",
+        icon: Blocks,
+      },
+    ],
   },
 ];
 
