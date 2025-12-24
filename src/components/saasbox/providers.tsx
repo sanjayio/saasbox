@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { ActiveThemeProvider } from "@/components/saasbox/active-theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ThemeType } from "@/lib/themes";
 import { useState } from "react";
 
@@ -26,7 +27,9 @@ const Providers = ({ children, themeSettings }: ProvidersProps) => {
     >
       <ActiveThemeProvider initialTheme={themeSettings}>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <NuqsAdapter>
+            {children}
+          </NuqsAdapter>
         </QueryClientProvider>
         <Toaster position="top-center" richColors />
         {/* Temporarily disabled NextTopLoader due to React 19 compatibility issues */}
