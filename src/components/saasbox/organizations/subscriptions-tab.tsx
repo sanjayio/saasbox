@@ -121,7 +121,7 @@ export function SubscriptionsTab() {
                   )}
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {activePlan.limits.projects} projects included
+                  {activePlan.limits.websites} websites included
                 </p>
                 {activeSubscription.periodEnd && (
                   <p className="text-sm text-muted-foreground">
@@ -159,7 +159,21 @@ export function SubscriptionsTab() {
                 </div>
               </div>
               <CardDescription>
-                Up to {plan.limits.projects} projects
+                <p>
+                  {plan.limits.websites === -1
+                    ? "Unlimited Websites"
+                    : `Up to ${plan.limits.websites} websites`}
+                </p>
+                <p>
+                  {plan.limits.console_logs === -1
+                    ? "Unlimited Console Logs"
+                    : `Up to ${plan.limits.console_logs} console logs`}
+                </p>
+                <p>
+                  {plan.limits.network_requests === -1
+                    ? "Unlimited Network Requests"
+                    : `Up to ${plan.limits.network_requests} network requests`}
+                </p>
               </CardDescription>
             </CardHeader>
             <CardContent>

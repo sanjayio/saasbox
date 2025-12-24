@@ -31,15 +31,15 @@ export function Footer() {
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
       <div className="container space-y-3 text-center">
         <h2 className="font-light text-2xl tracking-tight md:text-4xl lg:text-5xl">
-          Book a demo today
+          Get Started Today
         </h2>
         <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-          We are here to help you on your agentic transformation. Book a demo
-          today to see how we can help you.
+          We are here to help you supercharge your SaaS. Get started today to
+          see how we can help you.
         </p>
         <div>
           <Button size="lg" className="mt-4" asChild>
-            <Link href="/book-a-demo">Book a demo</Link>
+            <Link href="/auth/sign-up">Get Started</Link>
           </Button>
         </div>
       </div>

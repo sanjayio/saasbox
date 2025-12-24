@@ -13,34 +13,14 @@ const categories = [
     title: "Platform",
     questions: [
       {
-        question: "How do I integrate my agent with my website?",
+        question: "How do I integrate the widgets into my website?",
         answer:
-          "You can integrate your agent with your website by using our web widget. Check out our documentation for more information.",
+          "You can integrate the widgets into your website by using our guides. Check out our documentation for more information.",
       },
       {
-        question: "How do I add a new agent?",
+        question: "What widgets are available?",
         answer:
-          "You can add a new agent by going to the agents page and requesting a new agent. We will then build a custom agent for you and you can start using it immediately.",
-      },
-      {
-        question: "How do I add a new workflow?",
-        answer:
-          "You can add a new workflow by going to the workflows page and requesting a new workflow. We will then build a custom workflow for you and you can start using it immediately.",
-      },
-      {
-        question: "How long would it take to build a new agent or workflow?",
-        answer:
-          "It depends on the complexity of the agent or workflow. But we can usually build a new agent or workflow in 1 - 7 business days. We are working on a faster self service way to do this.",
-      },
-      {
-        question: "Can I bring my own phone number?",
-        answer:
-          "Yes, you can, as long as it is a twilio phone number and you have the appropriate permissions to use it.",
-      },
-      {
-        question: "I don't like how my agent sounds, can I change it?",
-        answer:
-          "Yes, you can change the voice of your agent by going to the agent settings and selecting a different voice.",
+          "We currently have the Bug Reporter widget available. We are working on adding more widgets in the future.",
       },
     ],
   },
@@ -50,12 +30,12 @@ const categories = [
       {
         question: "How do I get support?",
         answer:
-          "You can get support by contacting us via email, slack or phone, depending on your plan. We are available 24/7 to help you with any questions you may have.",
+          "You can get support by contacting us via email or slack, depending on your plan. We are available 24/7 to help you with any questions you may have.",
       },
       {
         question: "Do you offer a free trial?",
         answer:
-          "No, unfortunately we don't offer a free trial. But we do offer a free demo call.",
+          "No, unfortunately we don't offer a free trial. But we have a generous free tier to get you started.",
       },
     ],
   },
@@ -66,6 +46,11 @@ const categories = [
         question: "Can I cancel the subscription at any time?",
         answer:
           "Yes, you can cancel the subscription at any time, from your account settings.",
+      },
+      {
+        question: "Does the subscription include access to all the widgets?",
+        answer:
+          "Yes, the subscription includes access to all the widgets. You can use the widgets on as many websites as you want.",
       },
       {
         question: "Can I change my plan at any time?",

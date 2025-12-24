@@ -29,24 +29,12 @@ export const Pricing = ({ className }: { className?: string }) => {
           </p>
         </div>
 
-        <div className="mt-8 space-y-4 text-center md:mt-12 lg:mt-20">
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-sm font-medium">Billed monthly</span>
-            <Switch
-              checked={isAnnual}
-              onCheckedChange={() => setIsAnnual(!isAnnual)}
-              aria-label="Toggle annual billing"
-            />
-            <span className="text-sm font-medium">Billed annually</span>
-          </div>
-        </div>
-
-        <div className="mt-8 grid items-start gap-5 text-start md:mt-12 md:grid-cols-4 lg:mt-20">
+        <div className="mt-8 grid items-start gap-5 text-start md:mt-12 md:grid-cols-2 lg:mt-20">
           {plans.map((plan: (typeof plans)[number]) => (
             <Card
               key={plan.name}
               className={`${
-                plan.name === "Starter"
+                plan.name === "Pro"
                   ? "outline-primary origin-top outline-4"
                   : ""
               }`}
@@ -62,13 +50,11 @@ export const Pricing = ({ className }: { className?: string }) => {
                     </span>
                   </div>
                   <div className="space-y-1">
-                    {plan.name !== "Free" && (
+                    {plan.name === "Free" ? (
+                      <div className="text-lg font-medium">Free forever</div>
+                    ) : (
                       <div className="text-lg font-medium">
-                        {isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
-                        <span className="text-muted-foreground">
-                          {" "}
-                          per {isAnnual ? "year" : "month"}
-                        </span>
+                        {plan.monthlyPrice} / month
                       </div>
                     )}
                   </div>
@@ -86,11 +72,7 @@ export const Pricing = ({ className }: { className?: string }) => {
                   ))}
                 </div>
 
-                <Button
-                  className="w-fit"
-                  variant={plan.button.variant}
-                  asChild
-                >
+                <Button className="w-fit" variant={plan.button.variant} asChild>
                   <Link href="/auth/sign-up">{plan.button.text}</Link>
                 </Button>
               </CardContent>
