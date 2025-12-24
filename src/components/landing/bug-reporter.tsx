@@ -34,7 +34,7 @@ declare global {
 export function BugReporter() {
 	return (
 		<Script
-			src="https://unpkg.com/saasbox-bug-reporter@1.0.7/dist/bug-reporter.min.js"
+			src="https://unpkg.com/saasbox-bug-reporter@1.0.10/dist/bug-reporter.min.js"
 			strategy="afterInteractive"
 			onLoad={() => {
 				if (typeof window !== 'undefined' && window.BugReporter) {
@@ -44,17 +44,17 @@ export function BugReporter() {
 						saasBoxSecret: `${process.env.NEXT_PUBLIC_SAASBOX_CREDENTIAL_SECRET}`,
 						screenshotMode: 'selection',
 						position: 'bottom-left',
-						offsetX: 30,
-						offsetY: 30,
+						offsetX: 15,
+						offsetY: 15,
 						buttonSize: 55,
 						buttonShape: 'rounded',
-						buttonIcon: '🐛',
-						buttonColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-						buttonShadow: '0 6px 20px rgba(102, 126, 234, 0.4)',
+						buttonIcon: '🐞',
+						buttonColor: '#f8f2e5',
+						buttonShadow: '0 6px 20px #ed9a56',
 						modalTitle: 'Report a Bug',
-						modalHeaderColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-						modalHeaderTextColor: '#ffffff',
-						modalPrimaryColor: '#667eea',
+						modalHeaderColor: '#f8f2e5',
+						modalHeaderTextColor: '#000000',
+						modalPrimaryColor: '#f8f2e5',
 						modalDescriptionLabel: 'Describe the issue',
 						modalDescriptionPlaceholder: 'Please tell us what went wrong...',
 						modalSubmitText: 'Submit',
