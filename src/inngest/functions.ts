@@ -142,7 +142,7 @@ export const triggerCleanup = inngest.createFunction(
             eq(bugReport.organizationId, organizationId),
             lt(
               bugReport.createdAt,
-              new Date(Date.now() - 1000 * 60 * 60 * 24) // 1 day ago
+              new Date(Date.now() - 1000 * 60 * 60 * 24 * 30) // 30 days ago
             )
           )
         );
