@@ -9,16 +9,16 @@ import { Card, CardContent } from "@/components/landing/ui/card";
 
 const items = [
   {
-    title: "Simple copy-pasta integration",
-    image: "placeholder.svg",
+    title: "Simple copy-pasta installation",
+    image: "/images/copy-pasta-installation.png",
   },
   {
-    title: "Easy management of your agents",
-    image: "placeholder.svg",
+    title: "Super customizable widgets",
+    image: "/images/customizable-widget.png",
   },
   {
-    title: "Sydney based support team",
-    image: "placeholder.svg",
+    title: "Extensive integration options",
+    image: "/images/integrations.png",
   },
 ];
 
@@ -40,7 +40,9 @@ export const Features = () => {
             Built for SaaS businesses of all sizes
           </h2>
           <p className="text-muted-foreground leading-snug">
-            SaaSBox is built using the latest and greatest tools and integrations, with a focus on simplicity, ease of use, and scalability.
+            SaaSBox is built using the latest and greatest tools and
+            integrations, with a focus on simplicity, ease of use, and
+            scalability.
           </p>
         </div>
 

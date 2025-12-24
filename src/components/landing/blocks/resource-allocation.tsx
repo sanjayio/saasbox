@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 
 const topItems = [
   {
-    title: "Reusable issue templates.",
+    title: "Super customizable widgets.",
     description:
-      "Draft lightning-fast documents with our Smart Instructions and Templates.",
+      "Customize the widgets to your liking and to your brand identity.",
     images: [
       {
-        src: "placeholder.svg",
-        alt: "Issue template interface",
+        src: "/images/customize-2.png",
+        alt: "Customizable widget interface",
         width: 495,
         height: 186,
       },
@@ -25,34 +25,39 @@ const topItems = [
     title: "Simplify your stack.",
     description: "No more Confluence, SharePoint, or Microsoft Word.",
     images: [
-      { src: "placeholder.svg", alt: "Jira logo", width: 48, height: 48 },
-      { src: "placeholder.svg", alt: "Excel logo", width: 48, height: 48 },
+      { src: "/images/slack.png", alt: "Slack logo", width: 48, height: 48 },
       {
-        src: "placeholder.svg",
-        alt: "Notion logo",
+        src: "/images/discord.png",
+        alt: "Discord logo",
         width: 48,
         height: 48,
       },
-      { src: "placeholder.svg", alt: "Word logo", width: 48, height: 48 },
       {
-        src: "placeholder.svg",
+        src: "/images/email.png",
+        alt: "Email logo",
+        width: 48,
+        height: 48,
+      },
+      { src: "/images/http.png", alt: "HTTP logo", width: 48, height: 48 },
+      {
+        src: "/images/http.png",
         alt: "Monday logo",
         width: 48,
         height: 48,
       },
       {
-        src: "placeholder.svg",
-        alt: "Google Drive logo",
+        src: "/images/slack.png",
+        alt: "Slack logo",
         width: 48,
         height: 48,
       },
       {
-        src: "placeholder.svg",
-        alt: "Jira logo",
+        src: "/images/discord.png",
+        alt: "Discord logo",
         width: 48,
         height: 48,
       },
-      { src: "placeholder.svg", alt: "Asana logo", width: 48, height: 48 },
+      { src: "/images/email.png", alt: "Email logo", width: 48, height: 48 },
     ],
     className:
       "flex-1 [&>.title-container]:mb-5 md:[&>.title-container]:mb-8 md:[&>.title-container]:translate-x-2 xl:[&>.title-container]:translate-x-4 [&>.title-container]:translate-x-0",
@@ -62,9 +67,8 @@ const topItems = [
 
 const bottomItems = [
   {
-    title: "Graveyard it.",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.",
+    title: "Super light weight.",
+    description: "SaaSBox is super lightweight, weighing in at less than 80KB.",
     images: [
       {
         src: "placeholder.svg",
@@ -78,25 +82,24 @@ const bottomItems = [
     fade: ["bottom"],
   },
   {
-    title: "Task discussions.",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+    title: "Capture network requests, console logs, and more.",
+    description: "With a single click.",
     images: [
       {
         src: "placeholder.svg",
-        alt: "Task discussions interface",
-        width: 320,
-        height: 103,
+        alt: "Graveyard interface",
+        width: 305,
+        height: 280,
       },
     ],
     className:
-      "justify-normal [&>.title-container]:mb-5 md:[&>.title-container]:mb-0 [&>.image-container]:flex-1 md:[&>.image-container]:place-items-center md:[&>.image-container]:-translate-y-3",
-    fade: [""],
+      "[&>.title-container]:mb-5 md:[&>.title-container]:mb-8 xl:[&>.image-container]:translate-x-6 [&>.image-container]:translate-x-2",
+    fade: ["bottom"],
   },
   {
-    title: "Notifications.",
+    title: "Sydney based support team.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      "We are based in Sydney, Australia and we are here to help you.",
     images: [
       {
         src: "placeholder.svg",
@@ -116,10 +119,8 @@ export const ResourceAllocation = () => {
     <section id="how-it-works" className="overflow-hidden pb-28 lg:pb-32">
       <div className="">
         <h2 className="container font-light text-center text-3xl tracking-tight text-balance md:text-4xl lg:text-5xl">
-          Agentic Voice Automation can transform your business in days, not
-          weeks.
+          SaaSBox can transform your business in days, not weeks.
         </h2>
-
         <div className="mt-8 md:mt-12 lg:mt-20">
           <DashedLine
             orientation="horizontal"
