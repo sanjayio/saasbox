@@ -1,16 +1,41 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useQueryState, parseAsString, parseAsStringEnum, parseAsInteger } from "nuqs";
+import {
+  useQueryState,
+  parseAsString,
+  parseAsStringEnum,
+  parseAsInteger,
+} from "nuqs";
 import { authClient } from "@/lib/auth/auth-client";
-import { useGetBugReportsByOrganizationId, useDeleteBugReport } from "@/hooks/use-bug-reporter";
+import {
+  useGetBugReportsByOrganizationId,
+  useDeleteBugReport,
+} from "@/hooks/use-bug-reporter";
 import { Copy, Loader2, Search, Trash2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Pagination,
   PaginationContent,
@@ -31,21 +56,47 @@ const PAGE_SIZE = 5;
 export default function BugReporterContent() {
   const { data: activeOrganization } = authClient.useActiveOrganization();
   const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null);
-  
-  const [search, setSearch] = useQueryState("search", parseAsString.withDefault(""));
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(
+    null
+  );
+
+  const [searchInput, setSearchInput] = useState("");
+  const [search, setSearch] = useQueryState(
+    "search",
+    parseAsString.withDefault("")
+  );
   const [sort, setSort] = useQueryState(
     "sort",
-    parseAsStringEnum<SortOption>(["newest", "oldest", "description-asc", "description-desc"]).withDefault("newest")
+    parseAsStringEnum<SortOption>([
+      "newest",
+      "oldest",
+      "description-asc",
+      "description-desc",
+    ]).withDefault("newest")
   );
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
 
   // Ensure page is always a number
   const currentPage = page ?? 1;
-  
+
   const organizationId = activeOrganization?.id || "";
-  
-  const { mutate: deleteBugReport, isPending: isDeletingBugReport } = useDeleteBugReport();
+
+  const { mutate: deleteBugReport, isPending: isDeletingBugReport } =
+    useDeleteBugReport();
+
+  // Debounce search input - update search query state after 500ms of no typing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(searchInput || null);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchInput, setSearch]);
+
+  // Initialize searchInput from URL on mount
+  useEffect(() => {
+    setSearchInput(search);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Reset to page 1 when search or sort changes
   useEffect(() => {
@@ -55,13 +106,14 @@ export default function BugReporterContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, sort]);
 
-  const { data: bugReports, isPending: isLoadingBugReports } = useGetBugReportsByOrganizationId({
-    organizationId,
-    page: currentPage,
-    pageSize: PAGE_SIZE,
-    search: search || undefined,
-    sort,
-  });
+  const { data: bugReports, isPending: isLoadingBugReports } =
+    useGetBugReportsByOrganizationId({
+      organizationId,
+      page: currentPage,
+      pageSize: PAGE_SIZE,
+      search: search || undefined,
+      sort,
+    });
 
   function handleDeleteBugReport(bugReportId: string) {
     if (confirmingDeleteId === bugReportId) {
@@ -99,8 +151,14 @@ export default function BugReporterContent() {
 
   return (
     <div className="max-w-2xl container my-4 px-4">
-      <Dialog open={previewImage !== null} onOpenChange={(open) => !open && setPreviewImage(null)}>
-        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0" showCloseButton={true}>
+      <Dialog
+        open={previewImage !== null}
+        onOpenChange={(open) => !open && setPreviewImage(null)}
+      >
+        <DialogContent
+          className="max-w-[95vw] max-h-[95vh] p-0"
+          showCloseButton={true}
+        >
           <DialogTitle className="sr-only">Bug Screenshot Preview</DialogTitle>
           {previewImage && (
             <Image
@@ -113,7 +171,7 @@ export default function BugReporterContent() {
           )}
         </DialogContent>
       </Dialog>
-      
+
       {/* Search and Sort Controls */}
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="relative flex-1">
@@ -121,12 +179,15 @@ export default function BugReporterContent() {
           <Input
             type="text"
             placeholder="Search bug reports..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value || null)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
             className="pl-9"
           />
         </div>
-        <Select value={sort} onValueChange={(value) => setSort(value as SortOption)}>
+        <Select
+          value={sort}
+          onValueChange={(value) => setSort(value as SortOption)}
+        >
           <SelectTrigger className="w-full sm:w-[200px]">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
@@ -142,20 +203,26 @@ export default function BugReporterContent() {
       {/* Results count and pagination info */}
       {bugReports?.pagination && (
         <div className="mb-4 text-sm text-muted-foreground">
-          Showing {bugReports.pagination.totalCount === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1} to{" "}
-          {Math.min(currentPage * PAGE_SIZE, bugReports.pagination.totalCount)} of{" "}
-          {bugReports.pagination.totalCount} bug reports
+          Showing{" "}
+          {bugReports.pagination.totalCount === 0
+            ? 0
+            : (currentPage - 1) * PAGE_SIZE + 1}{" "}
+          to{" "}
+          {Math.min(currentPage * PAGE_SIZE, bugReports.pagination.totalCount)}{" "}
+          of {bugReports.pagination.totalCount} bug reports
         </div>
       )}
 
       {/* Empty states */}
-      {!isLoadingBugReports && bugReports?.bugReports && bugReports.bugReports.length === 0 && (
-        <div className="mb-4 text-center text-sm text-muted-foreground">
-          {search
-            ? "No bug reports match your search criteria."
-            : "No bug reports found."}
-        </div>
-      )}
+      {!isLoadingBugReports &&
+        bugReports?.bugReports &&
+        bugReports.bugReports.length === 0 && (
+          <div className="mb-4 text-center text-sm text-muted-foreground">
+            {search
+              ? "No bug reports match your search criteria."
+              : "No bug reports found."}
+          </div>
+        )}
 
       {/* Bug Reports List */}
       {bugReports?.bugReports.map((bugReport) => (
@@ -214,10 +281,19 @@ export default function BugReporterContent() {
                     <AccordionTrigger>More Details</AccordionTrigger>
                     <AccordionContent>
                       <Tabs defaultValue="consoleLogs">
-                        <TabsList defaultValue="consoleLogs" className="grid w-full grid-cols-3">
-                          <TabsTrigger value="consoleLogs">Console Logs</TabsTrigger>
-                          <TabsTrigger value="networkRequests">Network Requests</TabsTrigger>
-                          <TabsTrigger value="systemInfo">System Info</TabsTrigger>
+                        <TabsList
+                          defaultValue="consoleLogs"
+                          className="grid w-full grid-cols-3"
+                        >
+                          <TabsTrigger value="consoleLogs">
+                            Console Logs
+                          </TabsTrigger>
+                          <TabsTrigger value="networkRequests">
+                            Network Requests
+                          </TabsTrigger>
+                          <TabsTrigger value="systemInfo">
+                            System Info
+                          </TabsTrigger>
                         </TabsList>
                         <TabsContent value="consoleLogs">
                           <div className="relative">
@@ -233,7 +309,9 @@ export default function BugReporterContent() {
                                 navigator.clipboard.writeText(
                                   JSON.stringify(bugReport.consoleLogs, null, 2)
                                 );
-                                toast.success("Console logs copied to clipboard");
+                                toast.success(
+                                  "Console logs copied to clipboard"
+                                );
                               }}
                             >
                               <Copy className="size-4" />
@@ -243,7 +321,11 @@ export default function BugReporterContent() {
                         <TabsContent value="networkRequests">
                           <div className="relative">
                             <pre className="bg-muted border rounded-md p-4 text-sm whitespace-pre-wrap overflow-x-auto">
-                              {JSON.stringify(bugReport.networkRequests, null, 2)}
+                              {JSON.stringify(
+                                bugReport.networkRequests,
+                                null,
+                                2
+                              )}
                             </pre>
                             <Button
                               type="button"
@@ -252,9 +334,15 @@ export default function BugReporterContent() {
                               className="absolute top-2 right-2"
                               onClick={() => {
                                 navigator.clipboard.writeText(
-                                  JSON.stringify(bugReport.networkRequests, null, 2)
+                                  JSON.stringify(
+                                    bugReport.networkRequests,
+                                    null,
+                                    2
+                                  )
                                 );
-                                toast.success("Network requests copied to clipboard");
+                                toast.success(
+                                  "Network requests copied to clipboard"
+                                );
                               }}
                             >
                               <Copy className="size-4" />
@@ -275,7 +363,9 @@ export default function BugReporterContent() {
                                 navigator.clipboard.writeText(
                                   JSON.stringify(bugReport.systemInfo, null, 2)
                                 );
-                                toast.success("System info copied to clipboard");
+                                toast.success(
+                                  "System info copied to clipboard"
+                                );
                               }}
                             >
                               <Copy className="size-4" />
@@ -306,14 +396,18 @@ export default function BugReporterContent() {
                       setPage(currentPage - 1);
                     }
                   }}
-                  className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                  className={
+                    currentPage === 1
+                      ? "pointer-events-none opacity-50"
+                      : "cursor-pointer"
+                  }
                 />
               </PaginationItem>
-              
+
               {(() => {
                 const pages: (number | "ellipsis")[] = [];
                 const totalPages = bugReports.pagination.totalPages;
-                
+
                 if (totalPages <= 7) {
                   // Show all pages if 7 or fewer
                   for (let i = 1; i <= totalPages; i++) {
@@ -322,7 +416,7 @@ export default function BugReporterContent() {
                 } else {
                   // Always show first page
                   pages.push(1);
-                  
+
                   if (currentPage <= 3) {
                     // Show pages 1-5, then ellipsis, then last
                     for (let i = 2; i <= 5; i++) {
@@ -346,7 +440,7 @@ export default function BugReporterContent() {
                     pages.push(totalPages);
                   }
                 }
-                
+
                 return pages.map((item, idx) => {
                   if (item === "ellipsis") {
                     return (
@@ -355,7 +449,7 @@ export default function BugReporterContent() {
                       </PaginationItem>
                     );
                   }
-                  
+
                   return (
                     <PaginationItem key={item}>
                       <PaginationLink
