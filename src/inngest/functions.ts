@@ -1,7 +1,66 @@
 import { inngest } from "./client";
 import { db } from "@/drizzle/db";
 import { credential, bugReport, subscription } from "@/drizzle/schema";
-import { and, desc, eq, lt } from "drizzle-orm";
+import { and, desc, eq, lt, sql } from "drizzle-orm";
+
+export const triggerCleanupCron = inngest.createFunction(
+  { id: "trigger-cleanup-cron" },
+  { cron: "TZ=Australia/Sydney 5 4 * * *" },
+  async ({ step }) => {
+    const thirtyDaysAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30);
+    const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24);
+
+    // Delete bug reports for organizations with active subscriptions (older than 30 days)
+    const subscribedOrgCleanup = await step.run(
+      "cleanup-subscribed-orgs",
+      async () => {
+        return db.delete(bugReport).where(
+          and(
+            lt(bugReport.createdAt, thirtyDaysAgo),
+            sql`EXISTS (
+                SELECT 1 FROM organization
+                WHERE organization.id = ${bugReport.organizationId}
+                AND EXISTS (
+                  SELECT 1 FROM subscription
+                  WHERE subscription.reference_id = organization.id
+                  AND subscription.status = 'active'
+                )
+              )`
+          )
+        );
+      }
+    );
+
+    // Delete bug reports for organizations without active subscriptions (older than 1 day)
+    const unsubscribedOrgCleanup = await step.run(
+      "cleanup-unsubscribed-orgs",
+      async () => {
+        return db.delete(bugReport).where(
+          and(
+            lt(bugReport.createdAt, oneDayAgo),
+            sql`EXISTS (
+                SELECT 1 FROM organization
+                WHERE organization.id = ${bugReport.organizationId}
+                AND NOT EXISTS (
+                  SELECT 1 FROM subscription
+                  WHERE subscription.reference_id = organization.id
+                  AND subscription.status = 'active'
+                )
+              )`
+          )
+        );
+      }
+    );
+
+    return {
+      success: true,
+      message: "Cleanup cron triggered successfully",
+      subscribedOrgCleanup,
+      unsubscribedOrgCleanup,
+      timestamp: new Date().toISOString(),
+    };
+  }
+);
 
 export const triggerCleanup = inngest.createFunction(
   { id: "trigger-cleanup" },
