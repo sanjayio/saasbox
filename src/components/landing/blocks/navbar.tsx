@@ -27,7 +27,7 @@ const ITEMS = [
     dropdownItems: [
       {
         title: "Why SaaSBox?",
-        href: "/#why-saas-box",
+        href: "/#why-saasbox",
         description:
           "Learn why SaaSBox is the best way to grow your SaaS business.",
       },

@@ -23,7 +23,7 @@ interface FeatureSection {
 
 const comparisonFeatures: FeatureSection[] = [
   {
-    category: "Usage",
+    category: "Platform Limits",
     features: [
       {
         name: "Organizations",
@@ -31,69 +31,44 @@ const comparisonFeatures: FeatureSection[] = [
         pro: "Unlimited",
       },
       {
-        name: "Agents",
-        free: true,
-        pro: "1",
+        name: "Websites",
+        free: "1",
+        pro: "Unlimited",
       },
       {
-        name: "Minutes",
-        free: true,
-        pro: "250",
+        name: "Console Logs",
+        free: "3 Recent Logs",
+        pro: "Unlimited",
       },
       {
-        name: "Custom Workflows",
-        free: true,
-        pro: "1",
+        name: "Integrations",
+        free: "Email",
+        pro: "Email, Slack and Discord",
       },
       {
-        name: "Extra Minutes",
+        name: "Customizable Widgets",
         free: true,
-        pro: "~$0.18 per minute",
+        pro: true,
       },
       {
-        name: "Usage Analytics",
-        free: true,
+        name: "Analytics",
+        free: false,
         pro: true,
       },
     ],
   },
   {
-    category: "Features",
+    category: "Bug Reporter Limits",
     features: [
       {
-        name: "Custom Voices",
-        free: true,
-        pro: "10",
+        name: "Console Logs",
+        free: "3 Recent Logs",
+        pro: "Unlimited",
       },
       {
-        name: "Phone and Web Agents",
-        free: true,
-        pro: true,
-      },
-      {
-        name: "Free Phone Number",
-        free: true,
-        pro: "Full Price",
-      },
-      {
-        name: "Conversation History",
-        free: true,
-        pro: "7 days",
-      },
-      {
-        name: "Demand based Scaling",
-        free: true,
-        pro: false,
-      },
-      {
-        name: "Advanced Analytics",
-        free: true,
-        pro: false,
-      },
-      {
-        name: "Voice Clones",
-        free: true,
-        pro: false,
+        name: "Network Requests",
+        free: "3 Recent Requests",
+        pro: "Unlimited",
       },
     ],
   },
@@ -107,28 +82,13 @@ const comparisonFeatures: FeatureSection[] = [
       },
       {
         name: "Slack Support",
-        free: true,
-        pro: false,
+        free: false,
+        pro: true,
       },
       {
-        name: "Phone Support",
-        free: true,
-        pro: false,
-      },
-      {
-        name: "Avg. Response Time",
-        free: true,
-        pro: "2 days",
-      },
-      {
-        name: "Dedicated Account Manager",
-        free: true,
-        pro: false,
-      },
-      {
-        name: "Concierge Onboarding",
-        free: true,
-        pro: false,
+        name: "Priority Support",
+        free: false,
+        pro: true,
       },
     ],
   },
