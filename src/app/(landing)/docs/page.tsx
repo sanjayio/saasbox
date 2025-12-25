@@ -2,11 +2,26 @@ import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { Background } from "@/components/landing/background";
-
-const options = { next: { revalidate: 60 } };
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/landing/ui/card";
+import { Categories } from "@/sanity/categories";
+import { PublishedAt } from "@/sanity/published_at";
+import { POSTS_QUERY_RESULT } from "@/sanity/types";
 
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
+
+  const validPosts = posts.filter(
+    (post) =>
+      post?.slug?.current &&
+      typeof post.slug.current === "string" &&
+      post.slug.current.length > 0
+  );
 
   return (
     <Background>
@@ -18,18 +33,43 @@ export default async function Page() {
           <p className="text-muted-foreground mt-4 mb-12 text-center leading-snug font-medium lg:mx-auto">
             Learn how to use SaaSBox and get the most out of it.
           </p>
-          <ul className="grid grid-cols-1 divide-y divide-blue-100">
-            {posts.map((post) => (
-              <li key={post._id}>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {validPosts.map((post) => {
+              const slug = post.slug?.current as string;
+              const encodedSlug = encodeURIComponent(slug);
+              return (
                 <Link
-                  className="block p-4 hover:text-blue-500"
-                  href={`/docs/${post?.slug?.current}`}
+                  key={post._id}
+                  href={`/docs/${encodedSlug}`}
+                  className="group"
                 >
-                  {post?.title}
+                  <Card className="h-full transition-all hover:shadow-md hover:border-primary/50">
+                    <CardHeader>
+                      <CardTitle className="group-hover:text-primary transition-colors">
+                        {post?.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col gap-4">
+                      {post.categories && post.categories.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          <Categories
+                            categories={
+                              post.categories as POSTS_QUERY_RESULT[0]["categories"]
+                            }
+                          />
+                        </div>
+                      )}
+                    </CardContent>
+                    <CardFooter>
+                      {post.publishedAt && (
+                        <PublishedAt publishedAt={post.publishedAt} />
+                      )}
+                    </CardFooter>
+                  </Card>
                 </Link>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </div>
       </section>
     </Background>

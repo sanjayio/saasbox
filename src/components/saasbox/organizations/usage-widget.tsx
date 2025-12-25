@@ -1,31 +1,52 @@
+"use client";
+
 // import { useGetUsageByOrganizationId } from "@/hooks/use-agent";
 import { Progress } from "@/components/ui/progress";
+import { authClient } from "@/lib/auth/auth-client";
+import { plans } from "@/lib/constants";
+import { useGetSubscriptionByOrganizationId } from "@/hooks/use-subscription";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
-import { authClient } from "@/lib/auth/auth-client";
 
 const UsageWidget = () => {
   const { data: activeOrganization, isPending: isActiveOrganizationLoading } =
     authClient.useActiveOrganization();
-
+  const { data: subscriptions, isPending: isSubscriptionsLoading } =
+    useGetSubscriptionByOrganizationId(activeOrganization?.id ?? "");
+  const limits = subscriptions?.subscriptions[0]?.plan
+    ? plans.find((plan) => plan.name === subscriptions?.subscriptions[0]?.plan)
+        ?.limits
+    : plans.find((plan) => plan.name === "Free")?.limits;
   // const { data: usage, isPending: isUsageLoading } =
   //   useGetUsageByOrganizationId(activeOrganization?.id ?? "");
-  
+
+  const formatLimit = (limit: number | undefined): string => {
+    if (limit === undefined) return "—";
+    if (limit === -1) return "Unlimited";
+    return String(limit);
+  };
+
   // if (isUsageLoading || isActiveOrganizationLoading || !usage) {
-  if (isActiveOrganizationLoading) {
+  if (isActiveOrganizationLoading || isSubscriptionsLoading) {
     return (
       <div className="bg-foreground/10 mt-1.5 rounded-md border">
         <div className="space-y-3 p-3">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-medium">Minutes</h4>
+            <h4 className="text-sm font-medium">Websites</h4>
             <div className="text-muted-foreground flex items-center text-sm">
               <span className="mx-1">Unavailable</span>
             </div>
           </div>
           <Progress value={0} />
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-medium">Calls</h4>
+            <h4 className="text-sm font-medium">Console Logs</h4>
+            <div className="text-muted-foreground flex items-center text-sm">
+              <span className="mx-1">Unavailable</span>
+            </div>
+          </div>
+          <Progress value={0} />
+          <div className="flex items-center justify-between">
+            <h4 className="text-sm font-medium">Network Requests</h4>
             <div className="text-muted-foreground flex items-center text-sm">
               <span className="mx-1">Unavailable</span>
             </div>
@@ -40,29 +61,33 @@ const UsageWidget = () => {
     <div className="bg-foreground/10 mt-1.5 rounded-md border">
       <div className="space-y-3 p-3">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-medium">Minutes</h4>
+          <h4 className="text-sm font-medium">Websites</h4>
           <div className="text-muted-foreground flex items-center text-sm">
-            <span className="mx-1">{50} / 200</span>
-            mins
+            <span className="mx-1">{formatLimit(limits?.websites)}</span>
           </div>
         </div>
-        <Progress value={(50 / 200) * 100} />
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-medium">Calls</h4>
+          <h4 className="text-sm font-medium">Console Logs</h4>
           <div className="text-muted-foreground flex items-center text-sm">
-            <span className="mx-1">{10} / 155</span>
-            calls
+            <span className="mx-1">
+              {formatLimit(limits?.console_logs)} / report
+            </span>
           </div>
         </div>
-        <Progress value={(10 / 155) * 100} />
-        <div className="text-muted-foreground flex items-center justify-end text-sm">
-          <Button asChild className="w-full">
-            <Link href="/pricing" target="_blank">
-              Upgrade
-              <ArrowTopRightIcon className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
+        <div className="flex items-center justify-between">
+          <h4 className="text-sm font-medium">Network Requests</h4>
+          <div className="text-muted-foreground flex items-center text-sm">
+            <span className="mx-1">
+              {formatLimit(limits?.network_requests)} / report
+            </span>
+          </div>
         </div>
+        {subscriptions?.subscriptions &&
+          subscriptions.subscriptions.length === 0 && (
+            <Button variant="default" className="w-full">
+              <Link href="/organizations">Upgrade</Link>
+            </Button>
+          )}
       </div>
     </div>
   );

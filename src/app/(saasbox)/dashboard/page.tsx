@@ -10,5 +10,9 @@ export default async function Page() {
     return redirect("/auth/sign-in");
   }
 
-  return redirect("/dashboard/bug-reporter");
+  if (!session.session?.activeOrganizationId) {
+    return redirect("/start-here");
+  }
+
+  return redirect("/report/bug-reporter");
 }

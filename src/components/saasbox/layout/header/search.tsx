@@ -15,12 +15,11 @@ import {
 } from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { userNavItems } from "@/components/saasbox/layout/sidebar/nav-main";
+import { navItems } from "@/components/saasbox/layout/sidebar/nav-main";
 
 export default function Search() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const navItems = userNavItems;
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {

@@ -5,6 +5,7 @@ import { notificationRouter } from "./routers/notification-router";
 import { organizationRouter } from "./routers/organization-router";
 import { bugReporterRouter } from "./routers/bug-reporter-router";
 import { credentialRouter } from "./routers/credential-router";
+import { subscriptionRouter } from "./routers/subscription-router";
 
 const app = new Hono().basePath("/api").use(cors());
 
@@ -19,7 +20,8 @@ const appRouter = app
   .route("/notifications", notificationRouter)
   .route("/organizations", organizationRouter)
   .route("/bugreporter", bugReporterRouter)
-  .route("/credentials", credentialRouter);
+  .route("/credentials", credentialRouter)
+  .route("/subscriptions", subscriptionRouter);
 // .route("/project", projectRouter)
 
 // The handler Next.js uses to answer API requests

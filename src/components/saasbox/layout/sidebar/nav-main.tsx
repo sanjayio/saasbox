@@ -15,18 +15,14 @@ import {
 } from "@/components/ui/sidebar";
 import {
   Building2Icon,
-  ChartPieIcon,
   ChevronRight,
-  GaugeIcon,
   KeyIcon,
   type LucideIcon,
   SettingsIcon,
   HomeIcon,
   WrenchIcon,
-  BookIcon,
-  FileIcon,
-  Blocks,
   BugIcon,
+  ExternalLinkIcon,
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -42,7 +38,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
 
 type NavGroup = {
   title: string;
@@ -60,22 +55,17 @@ type NavItem = {
   items?: NavItem;
 }[];
 
-export const orgNavItems: NavGroup[] = [
-  // {
-  //   title: "Dashboards",
-  //   items: [
-  //     {
-  //       title: "Bug Reporter",
-  //       href: "/dashboard/bug-reporter",
-  //       icon: GaugeIcon,
-  //     },
-  //     {
-  //       title: "Usage",
-  //       href: "/dashboard/usage",
-  //       icon: GaugeIcon,
-  //     },
-  //   ]
-  // },
+export const navItems: NavGroup[] = [
+  {
+    title: "Onboarding",
+    items: [
+      {
+        title: "Start Here",
+        href: "/start-here",
+        icon: HomeIcon,
+      },
+    ],
+  },
   {
     title: "Reports",
     items: [
@@ -86,17 +76,6 @@ export const orgNavItems: NavGroup[] = [
       },
     ],
   },
-  // {
-  //   title: "Knowledge Base",
-  //   items: [
-  //     { title: "Notes", href: "/knowledge-base/notes", icon: BookIcon },
-  //     {
-  //       title: "Files",
-  //       href: "/knowledge-base/files",
-  //       icon: FileIcon,
-  //     },
-  //   ],
-  // },
   {
     title: "Developer",
     items: [
@@ -107,51 +86,18 @@ export const orgNavItems: NavGroup[] = [
         icon: WrenchIcon,
         items: [
           {
-            title: "Email Notifications",
-            href: "/integrations/email-notifications",
+            title: "Email",
+            href: "/integrations/email",
           },
           {
-            title: "Slack Notifications",
-            href: "/integrations/slack-notifications",
+            title: "Slack",
+            href: "/integrations/slack",
           },
           {
-            title: "SMS Notifications",
-            href: "/integrations/sms-notifications",
+            title: "Discord",
+            href: "/integrations/discord",
           },
         ],
-      },
-    ],
-  },
-  {
-    title: "How to Install",
-    items: [
-      {
-        title: "Bug Reporter",
-        href: "/how-to-install/bug-reporter",
-        icon: Blocks,
-      },
-    ],
-  },
-];
-
-export const userNavItems: NavGroup[] = [
-  {
-    title: "Dashboard",
-    items: [
-      {
-        title: "Home",
-        href: "/dashboard",
-        icon: HomeIcon,
-      },
-    ],
-  },
-  {
-    title: "Organizations",
-    items: [
-      {
-        title: "View All",
-        href: "/organizations",
-        icon: Building2Icon,
       },
     ],
   },
@@ -159,9 +105,31 @@ export const userNavItems: NavGroup[] = [
     title: "Account",
     items: [
       {
+        title: "Manage Organizations",
+        href: "/organizations",
+        icon: Building2Icon,
+      },
+      {
         title: "Account Settings",
         href: "/account-settings",
         icon: SettingsIcon,
+      },
+    ],
+  },
+  {
+    title: "Documentation",
+    items: [
+      {
+        title: "Install Bug Reporter",
+        href: "/docs/bug-reporter-installation",
+        icon: ExternalLinkIcon,
+        newTab: true,
+      },
+      {
+        title: "Read the Docs",
+        href: "/docs",
+        icon: ExternalLinkIcon,
+        newTab: true,
       },
     ],
   },
@@ -170,7 +138,6 @@ export const userNavItems: NavGroup[] = [
 export function NavMain() {
   const pathname = usePathname();
   const { isMobile } = useSidebar();
-  const [navItems] = useState(orgNavItems);
 
   return (
     <>

@@ -6,7 +6,6 @@ import { authClient } from "@/lib/auth/auth-client";
 import { MembersTab } from "./members-tab";
 import { InvitesTab } from "./invites-tab";
 import { SubscriptionsTab } from "./subscriptions-tab";
-// import { SubscriptionsTab } from "@/components/eckokit/organizations/subscriptions-tab";
 
 export function OrganizationTabs() {
   const { data: activeOrganization } = authClient.useActiveOrganization();
