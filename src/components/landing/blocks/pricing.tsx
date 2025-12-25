@@ -1,20 +1,13 @@
 "use client";
 
-import { useState } from "react";
-
 import Link from "next/link";
-
 import { Check } from "lucide-react";
-
 import { Button } from "@/components/landing/ui/button";
 import { Card, CardContent } from "@/components/landing/ui/card";
-import { Switch } from "@/components/landing/ui/switch";
 import { plans } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export const Pricing = ({ className }: { className?: string }) => {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   return (
     <section className={cn("py-28 lg:py-32", className)}>
       <div className="container max-w-5xl">
