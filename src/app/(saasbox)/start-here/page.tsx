@@ -9,9 +9,9 @@ import { user } from "@/drizzle/schemas/auth-schema";
 
 export async function generateMetadata() {
   return generateMeta({
-    title: "Bug Reporter",
-    description: "Bug Reporter for your website",
-    canonical: "/widgets/bug-reporter",
+    title: "Start Here",
+    description: "Start Here with SaaSBox",
+    canonical: "/start-here",
   });
 }
 

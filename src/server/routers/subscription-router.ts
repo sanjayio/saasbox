@@ -1,13 +1,8 @@
 import { z } from "zod";
 import { router } from "../__internals/router";
 import { privateProcedure } from "../procedures";
-import {
-  credential,
-  notification,
-  organization,
-  subscription,
-} from "@/drizzle/schema";
-import { eq, desc, and, inArray } from "drizzle-orm";
+import { member, organization, subscription } from "@/drizzle/schema";
+import { eq, desc, and } from "drizzle-orm";
 
 export const subscriptionRouter = router({
   getSubscriptionByOrganizationId: privateProcedure
@@ -32,6 +27,22 @@ export const subscriptionRouter = router({
 
       if (org.length === 0) {
         throw new Error("Organization not found");
+      }
+
+      // Verify user is a member of the organization
+      const membership = await ctx.db
+        .select()
+        .from(member)
+        .where(
+          and(
+            eq(member.organizationId, organizationId),
+            eq(member.userId, user.id)
+          )
+        )
+        .limit(1);
+
+      if (membership.length === 0) {
+        throw new Error("Forbidden");
       }
 
       const subscriptions = await ctx.db

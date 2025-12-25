@@ -15,18 +15,14 @@ import {
 } from "@/components/ui/sidebar";
 import {
   Building2Icon,
-  ChartPieIcon,
   ChevronRight,
-  GaugeIcon,
   KeyIcon,
   type LucideIcon,
   SettingsIcon,
   HomeIcon,
   WrenchIcon,
-  BookIcon,
-  FileIcon,
-  Blocks,
   BugIcon,
+  ExternalLinkIcon,
 } from "lucide-react";
 import Link from "next/link";
 import {
@@ -43,8 +39,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
-import { ArrowTopRightIcon } from "@sanity/icons";
-import { authClient } from "@/lib/auth/auth-client";
 
 type NavGroup = {
   title: string;
@@ -129,13 +123,13 @@ export const mainNavItems: NavGroup[] = [
       {
         title: "Install Bug Reporter",
         href: "/docs/bug-reporter-installation",
-        icon: ArrowTopRightIcon,
+        icon: ExternalLinkIcon,
         newTab: true,
       },
       {
         title: "Read the Docs",
         href: "/docs",
-        icon: ArrowTopRightIcon,
+        icon: ExternalLinkIcon,
         newTab: true,
       },
     ],

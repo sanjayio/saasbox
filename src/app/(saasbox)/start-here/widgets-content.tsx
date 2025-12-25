@@ -145,7 +145,7 @@ export default function WidgetsContent() {
                   htmlFor="firstBugReported"
                   className="text-sm font-normal cursor-pointer"
                 >
-                  Installed Bug Reporter WidgetSuccessfully. View the
+                  Installed Bug Reporter Widget Successfully. View the
                   documentation
                   <Link
                     href="/docs/bug-reporter-installation"

@@ -16,6 +16,13 @@ import { POSTS_QUERY_RESULT } from "@/sanity/types";
 export default async function Page() {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
 
+  const validPosts = posts.filter(
+    (post) =>
+      post?.slug?.current &&
+      typeof post.slug.current === "string" &&
+      post.slug.current.length > 0
+  );
+
   return (
     <Background>
       <section className="py-28 lg:py-32 lg:pt-44">
@@ -27,37 +34,41 @@ export default async function Page() {
             Learn how to use SaaSBox and get the most out of it.
           </p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {posts.map((post) => (
-              <Link
-                key={post._id}
-                href={`/docs/${post?.slug?.current}`}
-                className="group"
-              >
-                <Card className="h-full transition-all hover:shadow-md hover:border-primary/50">
-                  <CardHeader>
-                    <CardTitle className="group-hover:text-primary transition-colors">
-                      {post?.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-col gap-4">
-                    {post.categories && post.categories.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        <Categories
-                          categories={
-                            post.categories as POSTS_QUERY_RESULT[0]["categories"]
-                          }
-                        />
-                      </div>
-                    )}
-                  </CardContent>
-                  <CardFooter>
-                    {post.publishedAt && (
-                      <PublishedAt publishedAt={post.publishedAt} />
-                    )}
-                  </CardFooter>
-                </Card>
-              </Link>
-            ))}
+            {validPosts.map((post) => {
+              const slug = post.slug?.current as string;
+              const encodedSlug = encodeURIComponent(slug);
+              return (
+                <Link
+                  key={post._id}
+                  href={`/docs/${encodedSlug}`}
+                  className="group"
+                >
+                  <Card className="h-full transition-all hover:shadow-md hover:border-primary/50">
+                    <CardHeader>
+                      <CardTitle className="group-hover:text-primary transition-colors">
+                        {post?.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col gap-4">
+                      {post.categories && post.categories.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          <Categories
+                            categories={
+                              post.categories as POSTS_QUERY_RESULT[0]["categories"]
+                            }
+                          />
+                        </div>
+                      )}
+                    </CardContent>
+                    <CardFooter>
+                      {post.publishedAt && (
+                        <PublishedAt publishedAt={post.publishedAt} />
+                      )}
+                    </CardFooter>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { client } from "@/lib/client";
 
 export const useGetSubscriptionByOrganizationId = (organizationId: string) => {
   return useQuery({
-    queryKey: ["get-subscription-by-organization-id"],
+    queryKey: ["get-subscription-by-organization-id", organizationId],
     queryFn: async () => {
       const res =
         await client.subscriptions.getSubscriptionByOrganizationId.$get({
@@ -11,5 +11,6 @@ export const useGetSubscriptionByOrganizationId = (organizationId: string) => {
         });
       return await res.json();
     },
+    enabled: !!organizationId,
   });
 };
