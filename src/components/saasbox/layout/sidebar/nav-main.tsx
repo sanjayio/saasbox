@@ -38,7 +38,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
 
 type NavGroup = {
   title: string;
@@ -56,7 +55,7 @@ type NavItem = {
   items?: NavItem;
 }[];
 
-export const mainNavItems: NavGroup[] = [
+export const navItems: NavGroup[] = [
   {
     title: "Onboarding",
     items: [
@@ -139,7 +138,6 @@ export const mainNavItems: NavGroup[] = [
 export function NavMain() {
   const pathname = usePathname();
   const { isMobile } = useSidebar();
-  const [navItems] = useState(mainNavItems);
 
   return (
     <>
